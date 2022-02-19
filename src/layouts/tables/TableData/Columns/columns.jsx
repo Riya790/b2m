@@ -1,0 +1,212 @@
+/* eslint-disable prettier/prettier */
+import Chip from '@mui/material/Chip'
+import FaceIcon from '@mui/icons-material/Face'
+
+// import Typography from "@mui/material/Typography";
+// import Stack from "@mui/material/Stack";
+
+import color from '../color'
+
+const columns = [
+	{
+		field: 'id',
+		headerName: 'Sl No',
+		align: 'center',
+		headerAlign: 'center',
+		resizeable: true,
+		renderHeader: () => <strong>Sl No</strong>,
+	},
+	{
+		field: 'business_code',
+		headerName: 'Business Code',
+		width: 123,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Business Code</strong>,
+	},
+	{
+		field: 'business_name',
+		headerName: 'Business Name',
+		width: 155,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Business Name</strong>,
+	},
+	{
+		field: 'cust_number',
+		headerName: 'Customer Number',
+		type: 'number',
+		width: 143,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Customer Number</strong>,
+	},
+	{
+		field: 'name_customer',
+		headerName: 'Customer Name',
+		width: 255,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Customer Name</strong>,
+		renderCell: (props) => (
+			<Chip
+				icon={<FaceIcon />}
+				label={props.row.name_customer}
+				color={color[Math.floor(Math.random() * color.length)]}
+			/>
+		),
+	},
+	{
+		field: 'clear_date',
+		headerName: 'Clear Date',
+		width: 95,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Clear Date</strong>,
+	},
+	{
+		field: 'business_year',
+		headerName: 'Business Year',
+		width: 116.6,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Business Year</strong>,
+	},
+	{
+		field: 'doc_id',
+		headerName: 'Document ID',
+		width: 110,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Document ID</strong>,
+	},
+	{
+		field: 'posting_date',
+		headerName: 'Posting Date',
+		width: 110,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Posting Date</strong>,
+	},
+	{
+		field: 'document_create_date',
+		headerName: 'Document Create Date',
+		width: 172.5,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Document Create Date</strong>,
+	},
+	{
+		field: 'due_date',
+		headerName: 'Due Date',
+		width: 90,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Due Date</strong>,
+	},
+	{
+		field: 'invoice_currency',
+		headerName: 'Invoice Currency',
+		width: 134,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Invoice Currency</strong>,
+	},
+	{
+		field: 'doc_type',
+		headerName: 'Document Type',
+		width: 126,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Document Type</strong>,
+	},
+	{
+		field: 'posting_id',
+		headerName: 'Posting ID',
+		width: 95,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Posting ID</strong>,
+	},
+	{
+		field: 'total_open_amount',
+		headerName: 'Total Open Amount',
+		type: 'number',
+		width: 148,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Total Open Amount</strong>,
+	},
+	{
+		field: 'baseline_create_date',
+		headerName: 'Baseline Create Date',
+		width: 162,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Baseline Create Date</strong>,
+	},
+	{
+		field: 'cust_payment_terms',
+		headerName: 'Customer Payment Terms',
+		width: 200,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Customer Payment Terms</strong>,
+	},
+	{
+		field: 'invoice_id',
+		headerName: 'Invoice ID',
+		width: 90,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Invoice ID</strong>,
+	},
+	{
+		field: 'is_open',
+		headerName: 'Is Open',
+		type: 'boolean',
+		width: 80,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Is Open</strong>,
+	},
+	{
+		field: 'predicted',
+		headerName: 'Predicted',
+		type: 'number',
+		width: 120,
+		editable: true,
+		align: 'center',
+		headerAlign: 'center',
+		renderHeader: () => <strong>Predicted</strong>,
+	},
+	// {
+	// 	field: "fullName",
+	// 	headerName: "Full name",
+	// 	description: "This column has a value getter and is not sortable.",
+	// 	sortable: false,
+	// 	width: 160,
+	// 	valueGetter: (params) =>
+	// 		`${params.row.firstName || ""} ${params.row.lastName || ""}`,
+	// },
+]
+
+export default columns
