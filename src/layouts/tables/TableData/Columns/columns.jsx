@@ -1,11 +1,22 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
+
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
+// import { useMaterialUIController } from 'context'
+
+import color from '../color'
+
+// renderer
+import ColumnHeaderRenderer from './Renderer/columnHeaderRenderer'
+import CellRenderer from './Renderer/cellRenderer'
 
 // import Typography from "@mui/material/Typography";
 // import Stack from "@mui/material/Stack";
 
-import color from '../color'
+// const [controller] = useMaterialUIController()
+// const { darkMode } = controller
 
 const columns = [
 	{
@@ -13,8 +24,8 @@ const columns = [
 		headerName: 'Sl No',
 		align: 'center',
 		headerAlign: 'center',
-		resizeable: true,
-		renderHeader: () => <strong>Sl No</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Sl No" />,
+		renderCell: ({ row: { id } }) => <CellRenderer value={id} />,
 	},
 	{
 		field: 'business_code',
@@ -23,7 +34,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Business Code</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Business Code" />,
+		renderCell: ({ row: { business_code } }) => (
+			<CellRenderer value={business_code} />
+		),
 	},
 	{
 		field: 'business_name',
@@ -32,7 +46,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Business Name</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Business Name" />,
+		renderCell: ({ row: { business_name } }) => (
+			<CellRenderer value={business_name} />
+		),
 	},
 	{
 		field: 'cust_number',
@@ -42,7 +59,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Customer Number</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Customer Number" />,
+		renderCell: ({ row: { cust_number } }) => (
+			<CellRenderer value={cust_number} />
+		),
 	},
 	{
 		field: 'name_customer',
@@ -51,11 +71,11 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Customer Name</strong>,
-		renderCell: (props) => (
+		renderHeader: () => <ColumnHeaderRenderer value="Customer Name" />,
+		renderCell: ({ row: { name_customer } }) => (
 			<Chip
 				icon={<FaceIcon />}
-				label={props.row.name_customer}
+				label={name_customer}
 				color={color[Math.floor(Math.random() * color.length)]}
 			/>
 		),
@@ -67,7 +87,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Clear Date</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Clear Date" />,
+		renderCell: ({ row: { clear_date } }) => (
+			<CellRenderer value={clear_date} />
+		),
 	},
 	{
 		field: 'business_year',
@@ -76,7 +99,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Business Year</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Business Year" />,
+		renderCell: ({ row: { business_year } }) => (
+			<CellRenderer value={business_year} />
+		),
 	},
 	{
 		field: 'doc_id',
@@ -85,7 +111,8 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Document ID</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Document ID" />,
+		renderCell: ({ row: { doc_id } }) => <CellRenderer value={doc_id} />,
 	},
 	{
 		field: 'posting_date',
@@ -94,7 +121,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Posting Date</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Posting Date" />,
+		renderCell: ({ row: { posting_date } }) => (
+			<CellRenderer value={posting_date} />
+		),
 	},
 	{
 		field: 'document_create_date',
@@ -103,7 +133,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Document Create Date</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Document Create Date" />,
+		renderCell: ({ row: { document_create_date } }) => (
+			<CellRenderer value={document_create_date} />
+		),
 	},
 	{
 		field: 'due_date',
@@ -112,7 +145,8 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Due Date</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Due Date" />,
+		renderCell: ({ row: { due_date } }) => <CellRenderer value={due_date} />,
 	},
 	{
 		field: 'invoice_currency',
@@ -121,7 +155,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Invoice Currency</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Invoice Currency" />,
+		renderCell: ({ row: { invoice_currency } }) => (
+			<CellRenderer value={invoice_currency} />
+		),
 	},
 	{
 		field: 'doc_type',
@@ -130,7 +167,8 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Document Type</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Document Type" />,
+		renderCell: ({ row: { doc_type } }) => <CellRenderer value={doc_type} />,
 	},
 	{
 		field: 'posting_id',
@@ -139,7 +177,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Posting ID</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Document Type" />,
+		renderCell: ({ row: { posting_id } }) => (
+			<CellRenderer value={posting_id} />
+		),
 	},
 	{
 		field: 'total_open_amount',
@@ -149,7 +190,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Total Open Amount</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Total Open Amount" />,
+		renderCell: ({ row: { total_open_amount } }) => (
+			<CellRenderer value={total_open_amount} />
+		),
 	},
 	{
 		field: 'baseline_create_date',
@@ -158,7 +202,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Baseline Create Date</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Baseline Create Date" />,
+		renderCell: ({ row: { baseline_create_date } }) => (
+			<CellRenderer value={baseline_create_date} />
+		),
 	},
 	{
 		field: 'cust_payment_terms',
@@ -167,7 +214,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Customer Payment Terms</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Customer Payment Terms" />,
+		renderCell: ({ row: { cust_payment_terms } }) => (
+			<CellRenderer value={cust_payment_terms} />
+		),
 	},
 	{
 		field: 'invoice_id',
@@ -176,7 +226,10 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Invoice ID</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Invoice ID" />,
+		renderCell: ({ row: { invoice_id } }) => (
+			<CellRenderer value={invoice_id} />
+		),
 	},
 	{
 		field: 'is_open',
@@ -186,7 +239,8 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Is Open</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Is Open" />,
+		// renderCell: ({ row: { is_open } }) => <CellRenderer value={is_open} />,
 	},
 	{
 		field: 'predicted',
@@ -196,7 +250,8 @@ const columns = [
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
-		renderHeader: () => <strong>Predicted</strong>,
+		renderHeader: () => <ColumnHeaderRenderer value="Predicted" />,
+		renderCell: ({ row: { predicted } }) => <CellRenderer value={predicted} />,
 	},
 	// {
 	// 	field: "fullName",
