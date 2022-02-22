@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -144,16 +146,16 @@ function Dashboard() {
             </Grid>
           </Grid>
         </MDBox>
-        <MDBox>
-          <Grid container spacing={3}>
-            {/* <Grid item xs={12} md={6} lg={8}>
+        {/* <MDBox> */}
+        {/* <Grid container spacing={3}>
+            <Grid item xs={12} md={6} lg={8}>
               <Projects />
-            </Grid> */}
-            {/* <Grid item xs={12} md={6} lg={4}>
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
               <OrdersOverview />
-            </Grid> */}
-          </Grid>
-        </MDBox>
+            </Grid>
+          </Grid> */}
+        {/* </MDBox> */}
       </MDBox>
       <Footer />
     </DashboardLayout>

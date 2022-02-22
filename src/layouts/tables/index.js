@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unneeded-ternary */
 /* eslint-disable react/jsx-boolean-value */
 /* eslint-disable no-unused-vars */
@@ -12,14 +14,26 @@ import Card from "@mui/material/Card";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 
+// material icons
+import DeleteIcon from '@mui/icons-material/Delete';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import EditIcon from '@mui/icons-material/Edit';
+import PolicyIcon from '@mui/icons-material/Policy';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+
+
+// context api
 import { useMaterialUIController } from 'context'
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
+import MDButton from "components/MDButton";
+import MDInput from "components/MDInput";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -67,22 +81,90 @@ function Tables() {
                   Mallu Table
                 </MDTypography>
               </MDBox>
-              <MDBox pt={3} height="auto">
-                <Stack
-                  direction="row" spacing={2} m={2}>
-                  <Button
-                    variant="contained"
-                    startIcon={<DeleteIcon />}
-                    color={!darkMode ? "dark" : "primary"}>
-                    Delete
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    startIcon={<DeleteIcon />}
-                    backgroundColor="primary">
-                    Delete
-                  </Button>
-                </Stack>
+
+              <MDBox p={3} height="auto">
+                <Grid
+                  container
+                  spacing={3}
+                // m={3}
+                >
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="success"
+                      startIcon={<PersonAddAlt1Icon />}
+                    // gutterBottom
+                    >
+                      Add
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="secondary"
+                      startIcon={<EditIcon />}
+                    >
+                      Edit
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="error"
+                      startIcon={<DeleteIcon />}
+                    >
+                      Delete
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="info"
+                      startIcon={<PrecisionManufacturingIcon />}
+                    >Predict
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="warning"
+                      startIcon={<PolicyIcon />}
+                    >
+                      Advance Search
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={6} sm={6} lg={3}>
+                    <MDButton
+                      fullWidth
+                      variant="gradient"
+                      color="primary"
+                      startIcon={<AutoGraphIcon />}
+                    >Analytics
+                    </MDButton>
+                  </Grid>
+
+                  <Grid item xs={12} sm={12} lg={6} mb={2}>
+                    <TextField
+                      fullWidth
+                      autoComplete="off"
+                      type="search"
+                      label="Search Customer"
+                    />
+                  </Grid>
+
+                </Grid>
+
                 <DataGrid
                   rows={rows}
                   columns={columns}
@@ -90,23 +172,10 @@ function Tables() {
                   headerHeight={80}
                   pageSize={10}
                   rowsPerPageOptions={[10]}
-                  // paginationMode="client"
-                  // showColumnRightBorder
                   components={{
                     Toolbar: !darkMode ? GridToolbar : null,
                     Pagination: TablePagination,
                   }}
-                  // sx={{
-                  //   //   '& .MuiDataGrid-columnHeaderTitle': {
-                  //   //     textOverflow: "clip",
-                  //   //     whiteSpace: "break-spaces",
-                  //   //     lineHeight: 1
-                  //   //   }
-
-                  //   '&css-1qoy8mm-MuiButtonBase-root-MuiMenuItem-root': {
-                  //     backgroundColor: 'black'
-                  //   }
-                  // }}
                   sx={{
                     '& .MuiDataGrid-columnHeaderTitle': {
                       textOverflow: "clip",
@@ -117,38 +186,10 @@ function Tables() {
                   disableColumnMenu={darkMode ? true : false}
                   checkboxSelection
                   disableSelectionOnClick
-                // noEndBorder
                 />
               </MDBox>
             </Card>
           </Grid>
-          {/* <Grid item xs={12}>
-            <Card>
-              <MDBox
-                mx={2}
-                mt={-3}
-                py={3}
-                px={2}
-                variant="gradient"
-                bgColor="info"
-                borderRadius="lg"
-                coloredShadow="info"
-              >
-                <MDTypography variant="h6" color="white">
-                  Projects Table
-                </MDTypography>
-              </MDBox>
-              <MDBox pt={3}>
-                <DataTable
-                  table={{ columns: pColumns, rows: pRows }}
-                  isSorted={false}
-                  entriesPerPage={false}
-                  showTotalEntries={false}
-                  noEndBorder
-                />
-              </MDBox>
-            </Card>
-          </Grid> */}
         </Grid>
       </MDBox>
       <Footer />

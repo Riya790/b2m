@@ -1,3 +1,4 @@
-const color = ["primary", "secondary", "error", "warning", "info", "success"];
+/* eslint-disable prettier/prettier */
+const color = ['primary', 'secondary', 'error', 'warning', 'info', 'success']
 
-export default color;
+export default color
