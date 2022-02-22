@@ -13,9 +13,10 @@ import Card from "@mui/material/Card";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
+// import Button from '@mui/material/Button';
+// import Stack from '@mui/material/Stack';
+// import TextField from '@mui/material/TextField';
+import { Typography, TextField, Button, Stack } from '@mui/material';
 
 // material icons
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -24,6 +25,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import PolicyIcon from '@mui/icons-material/Policy';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 
 
 // context api
@@ -42,6 +44,7 @@ import Footer from "examples/Footer";
 // import DataTable from "examples/Tables/DataTable";
 
 import TablePagination from "../../examples/Tables/TablePagination/TablePagination";
+import TableButtons from './TableButtons/TableButtons';
 
 // Data
 import columns from "./TableData/Columns/columns";
@@ -83,88 +86,10 @@ function Tables() {
               </MDBox>
 
               <MDBox p={3} height="auto">
-                <Grid
-                  container
-                  spacing={3}
-                // m={3}
-                >
+                {/* table action buttons & inout field */}
+                <TableButtons />
 
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="success"
-                      startIcon={<PersonAddAlt1Icon />}
-                    // gutterBottom
-                    >
-                      Add
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="secondary"
-                      startIcon={<EditIcon />}
-                    >
-                      Edit
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="error"
-                      startIcon={<DeleteIcon />}
-                    >
-                      Delete
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="info"
-                      startIcon={<PrecisionManufacturingIcon />}
-                    >Predict
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="warning"
-                      startIcon={<PolicyIcon />}
-                    >
-                      Advance Search
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={6} sm={6} lg={3}>
-                    <MDButton
-                      fullWidth
-                      variant="gradient"
-                      color="primary"
-                      startIcon={<AutoGraphIcon />}
-                    >Analytics
-                    </MDButton>
-                  </Grid>
-
-                  <Grid item xs={12} sm={12} lg={6} mb={2}>
-                    <TextField
-                      fullWidth
-                      autoComplete="off"
-                      type="search"
-                      label="Search Customer"
-                    />
-                  </Grid>
-
-                </Grid>
-
+                {/* data-grid table */}
                 <DataGrid
                   rows={rows}
                   columns={columns}
