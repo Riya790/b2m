@@ -22,7 +22,7 @@ import MDTypography from 'components/MDTypography'
 import MDButton from 'components/MDButton'
 import MDInput from 'components/MDInput'
 
-const TableButtons = () => {
+const TableAction = () => {
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={6} sm={6} lg={3}>
@@ -107,4 +107,4 @@ const TableButtons = () => {
 	)
 }
 
-export default TableButtons
+export default TableAction

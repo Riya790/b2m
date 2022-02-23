@@ -4,6 +4,8 @@
 
 import React from 'react'
 
+import { Tooltip, Typography } from '@mui/material'
+
 import { useMaterialUIController } from 'context'
 
 const columnHeaderRenderer = ({ value }) => {
@@ -11,7 +13,18 @@ const columnHeaderRenderer = ({ value }) => {
 	const { darkMode } = controller
 
 	return (
-		<strong style={{ color: darkMode ? 'white' : 'black' }}>{value}</strong>
+		<Tooltip title={value} arrow>
+			<Typography
+				noWrap
+				style={{
+					color: darkMode ? 'white' : 'black',
+					fontWeight: 'bold',
+				}}
+				variant="caption"
+			>
+				{value}
+			</Typography>
+		</Tooltip>
 	)
 }
 

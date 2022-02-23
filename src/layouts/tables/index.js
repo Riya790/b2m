@@ -13,55 +13,29 @@ import Card from "@mui/material/Card";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
-// import Button from '@mui/material/Button';
-// import Stack from '@mui/material/Stack';
-// import TextField from '@mui/material/TextField';
-import { Typography, TextField, Button, Stack } from '@mui/material';
-
-// material icons
-import DeleteIcon from '@mui/icons-material/Delete';
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import EditIcon from '@mui/icons-material/Edit';
-import PolicyIcon from '@mui/icons-material/Policy';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import PersonSearchIcon from '@mui/icons-material/PersonSearch';
-
-
 // context api
 import { useMaterialUIController } from 'context'
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import MDButton from "components/MDButton";
-import MDInput from "components/MDInput";
+import MDPagination from 'components/MDPagination';
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-// import DataTable from "examples/Tables/DataTable";
 
 import TablePagination from "../../examples/Tables/TablePagination/TablePagination";
-import TableButtons from './TableButtons/TableButtons';
+import TableAction from './TableButtons/TableAction';
 
 // Data
 import columns from "./TableData/Columns/columns";
 import rows from "./TableData/Rows/rows";
 
-// import authorsTableData from "layouts/tables/data/authorsTableData";
-// import projectsTableData from "layouts/tables/data/projectsTableData";
-
 function Tables() {
   const [controller] = useMaterialUIController()
   const { darkMode } = controller
-  // const { columns, rows } = authorsTableData();
-  // const { columns: pColumns, rows: pRows } = projectsTableData();
-
-  // const column = columns.map((col) =>
-  //   darkMode ? { ...col, sortable: false } : col,
-  // )
 
   return (
     <DashboardLayout>
@@ -87,27 +61,27 @@ function Tables() {
 
               <MDBox p={3} height="auto">
                 {/* table action buttons & inout field */}
-                <TableButtons />
+                <TableAction />
 
                 {/* data-grid table */}
                 <DataGrid
                   rows={rows}
                   columns={columns}
                   autoHeight={true}
-                  headerHeight={80}
+                  headerHeight={88}
                   pageSize={10}
                   rowsPerPageOptions={[10]}
                   components={{
                     Toolbar: !darkMode ? GridToolbar : null,
                     Pagination: TablePagination,
                   }}
-                  sx={{
-                    '& .MuiDataGrid-columnHeaderTitle': {
-                      textOverflow: "clip",
-                      whiteSpace: "break-spaces",
-                      lineHeight: 1
-                    }
-                  }}
+                  // sx={{
+                  //   '& .MuiDataGrid-columnHeaderTitle': {
+                  //     textOverflow: "clip",
+                  //     whiteSpace: "break-spaces",
+                  //     lineHeight: 1
+                  //   }
+                  // }}
                   disableColumnMenu={darkMode ? true : false}
                   checkboxSelection
                   disableSelectionOnClick
