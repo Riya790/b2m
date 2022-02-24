@@ -93,7 +93,7 @@ const TableAction = () => {
 
 			<Grid item xs={12} sm={12} lg={6} mb={2}>
 				<MDBox sx={{ display: 'flex', alignItems: 'flex-end' }}>
-					<PersonSearchIcon sx={{ color: 'secondary', mr: 1, my: 0.5 }} />
+					<PersonSearchIcon sx={{ mr: 1, my: 0.5 }} />
 					<TextField
 						fullWidth
 						autoComplete="off"

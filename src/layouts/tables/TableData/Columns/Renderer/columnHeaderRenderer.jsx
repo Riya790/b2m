@@ -13,7 +13,7 @@ const columnHeaderRenderer = ({ value }) => {
 	const { darkMode } = controller
 
 	return (
-		<Tooltip title={value} arrow>
+		<Tooltip title={value} style={{ fontWeight: 'bold' }} arrow>
 			<Typography
 				noWrap
 				style={{

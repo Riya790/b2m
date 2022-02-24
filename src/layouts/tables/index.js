@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/named */
 /* eslint-disable import/first */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unneeded-ternary */
@@ -5,13 +7,15 @@
 /* eslint-disable no-unused-vars */
 // @mui material components
 /* eslint-disable prettier/prettier */
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 // import { makeStyles } from "@material-ui/core";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+
+// import { useAxios } from "use-axios-client";
 
 // context api
 import { useMaterialUIController } from 'context'
@@ -31,11 +35,24 @@ import TableAction from './TableButtons/TableAction';
 
 // Data
 import columns from "./TableData/Columns/columns";
-import rows from "./TableData/Rows/rows";
+// import { rows } from "./TableData/Rows/rows";
 
-function Tables() {
+import { ReadData } from '../../api/ReadData'
+
+
+const Tables = () => {
   const [controller] = useMaterialUIController()
   const { darkMode } = controller
+
+  // states
+  const [rows, setRows] = useState([]);
+
+  // fetching customers from api
+  useEffect(() => {
+    ReadData().then((data) => {
+      setRows(data.data)
+    });
+  }, [])
 
   return (
     <DashboardLayout>
@@ -75,13 +92,6 @@ function Tables() {
                     Toolbar: !darkMode ? GridToolbar : null,
                     Pagination: TablePagination,
                   }}
-                  // sx={{
-                  //   '& .MuiDataGrid-columnHeaderTitle': {
-                  //     textOverflow: "clip",
-                  //     whiteSpace: "break-spaces",
-                  //     lineHeight: 1
-                  //   }
-                  // }}
                   disableColumnMenu={darkMode ? true : false}
                   checkboxSelection
                   disableSelectionOnClick
