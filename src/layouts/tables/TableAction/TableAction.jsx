@@ -5,7 +5,7 @@
 
 import * as React from 'react'
 
-import { Grid, Modal } from '@mui/material'
+import { Grid } from '@mui/material'
 
 import MDBox from 'components/MDBox'
 
