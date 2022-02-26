@@ -1,4 +1,9 @@
-/* eslint-disable camelcase */
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/named */
+/* eslint-disable import/first */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable no-unneeded-ternary */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 
@@ -11,12 +16,6 @@ import color from '../color'
 // renderer
 import ColumnHeaderRenderer from './Renderer/columnHeaderRenderer'
 import CellRenderer from './Renderer/cellRenderer'
-
-// import Typography from "@mui/material/Typography";
-// import Stack from "@mui/material/Stack";
-
-// const [controller] = useMaterialUIController()
-// const { darkMode } = controller
 
 const columns = [
 	{

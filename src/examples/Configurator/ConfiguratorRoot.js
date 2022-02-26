@@ -1,3 +1,12 @@
+/* eslint-disable react/function-component-definition */
+/* eslint-disable import/named */
+/* eslint-disable import/first */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable no-unneeded-ternary */
+/* eslint-disable react/jsx-boolean-value */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
+
 // @mui material components
 import Drawer from "@mui/material/Drawer";
 import { styled } from "@mui/material/styles";
