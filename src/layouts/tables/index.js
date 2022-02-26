@@ -31,7 +31,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 
 import TablePagination from "../../examples/Tables/TablePagination/TablePagination";
-import TableAction from './TableButtons/TableAction';
+import TableAction from './TableAction/TableAction';
 
 // Data
 import columns from "./TableData/Columns/columns";
