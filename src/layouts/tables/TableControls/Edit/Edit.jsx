@@ -9,14 +9,35 @@
 
 import React, { useState } from 'react'
 
-import { Modal } from '@mui/material'
+import { Box, Modal, useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 import EditIcon from '@mui/icons-material/Edit'
 
 import MDButton from 'components/MDButton'
+import EditForm from '../../TableForms/EditForm/EditForm'
 
 const Edit = () => {
+	//  states
 	const [isOpen, setIsOpen] = useState(false)
+
+	// hooks
+	const theme = useTheme()
+	const width = useMediaQuery(theme.breakpoints.up('sm')) ? 'auto' : '255px'
+
+	// box style
+	const style = {
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		width: width,
+		//   bgcolor: 'background.paper',
+		borderRadius: '20px',
+		border: '2px solid #000',
+		boxShadow: 24,
+		//   p: 4,
+	}
 
 	return (
 		<>
@@ -35,7 +56,9 @@ const Edit = () => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<h2>Chutiya hai vroo?</h2>
+				<Box sx={style}>
+					<EditForm setIsOpen={setIsOpen} />
+				</Box>
 			</Modal>
 		</>
 	)

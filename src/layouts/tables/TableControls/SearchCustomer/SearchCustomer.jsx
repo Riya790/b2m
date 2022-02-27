@@ -15,8 +15,7 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch'
 
 import MDBox from 'components/MDBox'
 
-const SearchCustomer = () => {
-	return (
+const SearchCustomer = () => (
 		<MDBox sx={{ display: 'flex', alignItems: 'flex-end' }}>
 			<PersonSearchIcon sx={{ mr: 1, my: 0.5 }} />
 			<TextField
@@ -27,7 +26,6 @@ const SearchCustomer = () => {
 				variant="standard"
 			/>
 		</MDBox>
-	)
-}
+)
 
 export default SearchCustomer

@@ -14,6 +14,7 @@ import { Modal } from '@mui/material'
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
 
 import MDButton from 'components/MDButton'
+import ADDForm from '../../TableForms/AddForm/AddForm'
 
 const Add = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -35,7 +36,7 @@ const Add = () => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<h2>Chutiya hai vroo?</h2>
+				<h2><ADDForm/></h2>
 			</Modal>
 		</>
 	)
