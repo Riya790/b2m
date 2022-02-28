@@ -9,14 +9,35 @@
 
 import React, { useState } from 'react'
 
-import { Modal } from '@mui/material'
+import { Box, Modal, useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 import PolicyIcon from '@mui/icons-material/Policy'
 
 import MDButton from 'components/MDButton'
 
+import AdvancedSearchForm from '../../TableForms/AdvancedSearchForm/AdvancedSearchForm'
+
 const AdvancedSearch = () => {
+	// states
 	const [isOpen, setIsOpen] = useState(false)
+
+	// hooks
+	const theme = useTheme()
+	const width = useMediaQuery(theme.breakpoints.up('sm')) ? 'auto' : '255px'
+
+	const style = {
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		width: width,
+		//   bgcolor: 'background.paper',
+		borderRadius: '20px',
+		border: '2px solid #000',
+		boxShadow: 24,
+		//   p: 4,
+	}
 
 	return (
 		<>
@@ -35,7 +56,9 @@ const AdvancedSearch = () => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<h2>Chutiya hai vroo?</h2>
+				<Box sx={style}>
+					<AdvancedSearchForm setIsOpen={setIsOpen} />
+				</Box>
 			</Modal>
 		</>
 	)
