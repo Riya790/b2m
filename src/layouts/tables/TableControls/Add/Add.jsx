@@ -9,7 +9,8 @@
 
 import React, { useState } from 'react'
 
-import { Modal } from '@mui/material'
+import { Box, Modal, useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
 
@@ -17,7 +18,21 @@ import MDButton from 'components/MDButton'
 import ADDForm from '../../TableForms/AddForm/AddForm'
 
 const Add = () => {
+	// states
 	const [isOpen, setIsOpen] = useState(false)
+
+	const style = {
+		position: 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		width: 'auto',
+		//   bgcolor: 'background.paper',
+		borderRadius: '20px',
+		border: '2px solid #000',
+		boxShadow: 24,
+		//   p: 4,
+	}
 
 	return (
 		<>
@@ -36,7 +51,9 @@ const Add = () => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<h2><ADDForm/></h2>
+				<Box sx={style}>
+					<ADDForm setIsOpen={setIsOpen} />
+				</Box>
 			</Modal>
 		</>
 	)
