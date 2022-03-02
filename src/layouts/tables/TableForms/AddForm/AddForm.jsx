@@ -37,24 +37,21 @@ const validationSchema = yup.object({
 })
 
 const AddForm = ({ setIsOpen }) => {
-	// states
-	// const [baselineCreateDate, setBaselineCreateDate] = useState(new Date())
-
 	const formik = useFormik({
 		initialValues: {
 			baseline_create_date: new Date(),
 			business_code: '',
 			business_year: '',
-			clear_date: '',
+			clear_date: new Date(),
 			cust_payment_terms: '',
 			cust_number: '',
-			doc_create_date: '',
+			doc_create_date: new Date(),
 			doc_id: '',
 			doc_type: '',
-			due_date: '',
+			due_date: new Date(),
 			invoice_id: '',
 			invoice_currency: '',
-			posting_date: '',
+			posting_date: new Date(),
 			posting_id: '',
 			total_open_amount: '',
 		},
@@ -95,7 +92,7 @@ const AddForm = ({ setIsOpen }) => {
 			<MDBox p={3} height="auto">
 				<form onSubmit={handleSubmit}>
 					<Grid container spacing={3}>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<LocalizationProvider dateAdapter={AdapterDateFns}>
 								<DesktopDatePicker
 									fullWidth
@@ -114,7 +111,8 @@ const AddForm = ({ setIsOpen }) => {
 								/>
 							</LocalizationProvider>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="business_code"
@@ -124,7 +122,8 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.business_code && errors.business_code}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="business_year"
@@ -134,21 +133,28 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.business_year && errors.business_year}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
-							<TextField
-								fullWidth
-								type="clear_date"
-								label="Business Year"
-								{...getFieldProps('clear_date')}
-								error={Boolean(errors.clear_date)}
-								helperText={touched.clear_date && errors.clear_date}
-							/>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<DesktopDatePicker
+									fullWidth
+									value={values.clear_date}
+									onChange={(newValue) => setFieldValue('clear_date', newValue)}
+									type="clear_date"
+									label="Clear Date"
+									inputFormat="MM/dd/yyyy"
+									error={Boolean(errors.clear_date)}
+									helperText={touched.clear_date && errors.clear_date}
+									renderInput={(params) => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="cust_payment_terms"
-								label="Customer Number"
+								label="Customer Payment Terms"
 								{...getFieldProps('cust_payment_terms')}
 								error={Boolean(errors.cust_payment_terms)}
 								helperText={
@@ -156,7 +162,8 @@ const AddForm = ({ setIsOpen }) => {
 								}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="cust_number"
@@ -166,17 +173,26 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.cust_number && errors.cust_number}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
-							<TextField
-								fullWidth
-								type="doc_create_date"
-								label="Document Create Date"
-								{...getFieldProps('doc_create_date')}
-								error={Boolean(errors.doc_create_date)}
-								helperText={touched.doc_create_date && errors.doc_create_date}
-							/>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<DesktopDatePicker
+									fullWidth
+									value={values.doc_create_date}
+									onChange={(newValue) =>
+										setFieldValue('doc_create_date', newValue)
+									}
+									type="doc_create_date"
+									label="Document Create Date"
+									inputFormat="MM/dd/yyyy"
+									error={Boolean(errors.doc_create_date)}
+									helperText={touched.doc_create_date && errors.doc_create_date}
+									renderInput={(params) => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="doc_id"
@@ -186,7 +202,8 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.doc_id && errors.doc_id}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="doc_type"
@@ -196,17 +213,24 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.doc_type && errors.doc_type}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
-							<TextField
-								fullWidth
-								type="due_date"
-								label="Due Date"
-								{...getFieldProps('due_date')}
-								error={Boolean(errors.due_date)}
-								helperText={touched.due_date && errors.due_date}
-							/>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<DesktopDatePicker
+									fullWidth
+									value={values.due_date}
+									onChange={(newValue) => setFieldValue('due_date', newValue)}
+									type="due_date"
+									label="Due Date"
+									inputFormat="MM/dd/yyyy"
+									error={Boolean(errors.due_date)}
+									helperText={touched.due_date && errors.due_date}
+									renderInput={(params) => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="invoice_id"
@@ -216,7 +240,8 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.invoice_id && errors.invoice_id}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="invoice_currency"
@@ -226,17 +251,26 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.invoice_currency && errors.invoice_currency}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
-							<TextField
-								fullWidth
-								type="posting_date"
-								label="Posting Date"
-								{...getFieldProps('posting_date')}
-								error={Boolean(errors.posting_date)}
-								helperText={touched.posting_date && errors.posting_date}
-							/>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<DesktopDatePicker
+									fullWidth
+									value={values.posting_date}
+									onChange={(newValue) =>
+										setFieldValue('posting_date', newValue)
+									}
+									type="posting_date"
+									label="Posting Date"
+									inputFormat="MM/dd/yyyy"
+									error={Boolean(errors.posting_date)}
+									helperText={touched.posting_date && errors.posting_date}
+									renderInput={(params) => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="posting_id"
@@ -246,7 +280,8 @@ const AddForm = ({ setIsOpen }) => {
 								helperText={touched.posting_id && errors.posting_id}
 							/>
 						</Grid>
-						<Grid item xs={12} sm={6} md={6} lg={4}>
+
+						<Grid item xs={6} sm={6} md={6} lg={4}>
 							<TextField
 								fullWidth
 								type="total_open_amount"

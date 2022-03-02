@@ -21,12 +21,16 @@ const Add = () => {
 	// states
 	const [isOpen, setIsOpen] = useState(false)
 
+	// hooks
+	const theme = useTheme()
+	const width = useMediaQuery(theme.breakpoints.up('sm')) ? 'auto' : '355px'
+
 	const style = {
 		position: 'absolute',
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
-		width: 'auto',
+		width: width,
 		//   bgcolor: 'background.paper',
 		borderRadius: '20px',
 		border: '2px solid #000',
