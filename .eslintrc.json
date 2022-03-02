@@ -13,7 +13,9 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
+		"camel-case": "off",
 		"object-shorthand": 0,
+		"array-destructuring": "off",
 		"arrow-body-style": "off",
 		"default-param-last": "off",
 		"react/prop-types": "off",

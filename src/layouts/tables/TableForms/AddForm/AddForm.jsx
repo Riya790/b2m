@@ -1,15 +1,14 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Grid, Card, TextField } from '@mui/material'
+import {
+	LocalizationProvider,
+	DesktopDatePicker,
+	MobileDatePicker,
+} from '@mui/lab'
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
 
 import { useFormik } from 'formik'
 import * as yup from 'yup'
@@ -38,9 +37,12 @@ const validationSchema = yup.object({
 })
 
 const AddForm = ({ setIsOpen }) => {
+	// states
+	// const [baselineCreateDate, setBaselineCreateDate] = useState(new Date())
+
 	const formik = useFormik({
 		initialValues: {
-			baseline_create_date: '',
+			baseline_create_date: new Date(),
 			business_code: '',
 			business_year: '',
 			clear_date: '',
@@ -62,8 +64,16 @@ const AddForm = ({ setIsOpen }) => {
 		},
 	})
 
-	const { errors, touched, isSubmitting, handleSubmit, values, getFieldProps } =
-		formik
+	const {
+		errors,
+		touched,
+		isSubmitting,
+		handleSubmit,
+		handleChange,
+		values,
+		setFieldValue,
+		getFieldProps,
+	} = formik
 
 	return (
 		<Card>
@@ -86,16 +96,23 @@ const AddForm = ({ setIsOpen }) => {
 				<form onSubmit={handleSubmit}>
 					<Grid container spacing={3}>
 						<Grid item xs={12} sm={6} md={6} lg={4}>
-							<TextField
-								fullWidth
-								type="baseline_create_date"
-								label="Baseline Create Date"
-								{...getFieldProps('baseline_create_date')}
-								error={Boolean(errors.baseline_create_date)}
-								helperText={
-									touched.baseline_create_date && errors.baseline_create_date
-								}
-							/>
+							<LocalizationProvider dateAdapter={AdapterDateFns}>
+								<DesktopDatePicker
+									fullWidth
+									value={values.baseline_create_date}
+									onChange={(newValue) =>
+										setFieldValue('baseline_create_date', newValue)
+									}
+									type="baseline_create_date"
+									label="Baseline Create Date"
+									inputFormat="MM/dd/yyyy"
+									error={Boolean(errors.baseline_create_date)}
+									helperText={
+										touched.baseline_create_date && errors.baseline_create_date
+									}
+									renderInput={(params) => <TextField {...params} />}
+								/>
+							</LocalizationProvider>
 						</Grid>
 						<Grid item xs={12} sm={6} md={6} lg={4}>
 							<TextField

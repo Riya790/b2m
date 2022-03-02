@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/named */
 /* eslint-disable import/first */
