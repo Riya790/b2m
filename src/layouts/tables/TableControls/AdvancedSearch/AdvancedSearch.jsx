@@ -32,11 +32,9 @@ const AdvancedSearch = () => {
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
 		width: width,
-		//   bgcolor: 'background.paper',
 		borderRadius: '20px',
 		border: '2px solid #000',
 		boxShadow: 24,
-		//   p: 4,
 	}
 
 	return (

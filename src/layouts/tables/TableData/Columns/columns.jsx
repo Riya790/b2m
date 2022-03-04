@@ -1,15 +1,9 @@
 /* eslint-disable */
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
 
 import Chip from '@mui/material/Chip'
 import FaceIcon from '@mui/icons-material/Face'
+import CancelIcon from '@mui/icons-material/Cancel'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 // import { useMaterialUIController } from 'context'
 
 import color from '../color'
@@ -17,6 +11,9 @@ import color from '../color'
 // renderer
 import ColumnHeaderRenderer from './Renderer/columnHeaderRenderer'
 import CellRenderer from './Renderer/cellRenderer'
+
+// context
+import { useMaterialUIController } from 'context'
 
 const columns = [
 	{
@@ -30,7 +27,7 @@ const columns = [
 	{
 		field: 'business_code',
 		headerName: 'Business Code',
-		width: 123,
+		// width: 123,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -39,23 +36,23 @@ const columns = [
 			<CellRenderer value={business_code} />
 		),
 	},
-	{
-		field: 'business_name',
-		headerName: 'Business Name',
-		width: 155,
-		editable: true,
-		align: 'center',
-		headerAlign: 'center',
-		renderHeader: () => <ColumnHeaderRenderer value="Business Name" />,
-		renderCell: ({ row: { business_name } }) => (
-			<CellRenderer value={business_name} />
-		),
-	},
+	// {
+	// 	field: 'business_name',
+	// 	headerName: 'Business Name',
+	// 	width: 155,
+	// 	editable: true,
+	// 	align: 'center',
+	// 	headerAlign: 'center',
+	// 	renderHeader: () => <ColumnHeaderRenderer value="Business Name" />,
+	// 	renderCell: ({ row: { business_name } }) => (
+	// 		<CellRenderer value={business_name} />
+	// 	),
+	// },
 	{
 		field: 'cust_number',
 		headerName: 'Customer Number',
 		type: 'number',
-		width: 143,
+		// width: 143,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -83,7 +80,7 @@ const columns = [
 	{
 		field: 'clear_date',
 		headerName: 'Clear Date',
-		width: 95,
+		// width: 95,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -95,7 +92,7 @@ const columns = [
 	{
 		field: 'business_year',
 		headerName: 'Business Year',
-		width: 116.6,
+		// width: 116.6,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -107,7 +104,7 @@ const columns = [
 	{
 		field: 'doc_id',
 		headerName: 'Document ID',
-		width: 110,
+		// width: 110,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -117,7 +114,7 @@ const columns = [
 	{
 		field: 'posting_date',
 		headerName: 'Posting Date',
-		width: 110,
+		// width: 110,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -129,7 +126,7 @@ const columns = [
 	{
 		field: 'document_create_date',
 		headerName: 'Document Create Date',
-		width: 172.5,
+		// width: 172.5,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -141,7 +138,7 @@ const columns = [
 	{
 		field: 'due_date',
 		headerName: 'Due Date',
-		width: 90,
+		// width: 90,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -151,7 +148,7 @@ const columns = [
 	{
 		field: 'invoice_currency',
 		headerName: 'Invoice Currency',
-		width: 134,
+		// width: 134,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -163,7 +160,7 @@ const columns = [
 	{
 		field: 'doc_type',
 		headerName: 'Document Type',
-		width: 126,
+		// width: 126,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -173,7 +170,7 @@ const columns = [
 	{
 		field: 'posting_id',
 		headerName: 'Posting ID',
-		width: 95,
+		// width: 95,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -186,7 +183,7 @@ const columns = [
 		field: 'total_open_amount',
 		headerName: 'Total Open Amount',
 		type: 'number',
-		width: 148,
+		// width: 148,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -198,7 +195,7 @@ const columns = [
 	{
 		field: 'baseline_create_date',
 		headerName: 'Baseline Create Date',
-		width: 162,
+		// width: 162,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -210,7 +207,7 @@ const columns = [
 	{
 		field: 'cust_payment_terms',
 		headerName: 'Customer Payment Terms',
-		width: 200,
+		// width: 200,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -222,7 +219,7 @@ const columns = [
 	{
 		field: 'invoice_id',
 		headerName: 'Invoice ID',
-		width: 90,
+		// width: 90,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
@@ -235,18 +232,28 @@ const columns = [
 		field: 'is_open',
 		headerName: 'Is Open',
 		type: 'boolean',
-		width: 80,
+		// width: 80,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
 		renderHeader: () => <ColumnHeaderRenderer value="Is Open" />,
-		// renderCell: ({ row: { is_open } }) => <CellRenderer value={is_open} />,
+		renderCell: ({ row: { is_open } }) => {
+			// hooks
+			const [controller] = useMaterialUIController()
+			const { darkMode } = controller
+
+			return is_open ? (
+				<CheckCircleIcon color={darkMode ? 'info' : 'success'} />
+			) : (
+				<CancelIcon color={darkMode ? 'warning' : 'error'} />
+			)
+		},
 	},
 	{
 		field: 'predicted',
 		headerName: 'Predicted',
 		type: 'number',
-		width: 120,
+		// width: 120,
 		editable: true,
 		align: 'center',
 		headerAlign: 'center',
