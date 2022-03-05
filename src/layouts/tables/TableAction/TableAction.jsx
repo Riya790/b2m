@@ -23,7 +23,7 @@ import {
 	SearchCustomer,
 } from '../TableControls'
 
-const TableAction = () => {
+const TableAction = ({ rows, setRows, setFilteredRows }) => {
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={6} sm={6} lg={3}>
@@ -51,7 +51,11 @@ const TableAction = () => {
 			</Grid>
 
 			<Grid item xs={12} sm={12} lg={6} mb={2}>
-				<SearchCustomer />
+				<SearchCustomer
+					rows={rows}
+					setRows={setRows}
+					setFilteredRows={setFilteredRows}
+				/>
 			</Grid>
 		</Grid>
 	)

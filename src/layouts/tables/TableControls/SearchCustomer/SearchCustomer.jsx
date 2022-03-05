@@ -1,31 +1,50 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { TextField, Modal } from '@mui/material'
+import { TextField, Modal, IconButton } from '@mui/material'
 
 import PersonSearchIcon from '@mui/icons-material/PersonSearch'
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 
 import MDBox from 'components/MDBox'
 
-const SearchCustomer = () => (
+const SearchCustomer = ({ rows, setFilteredRows }) => {
+	// state
+	const [customerId, setCustomerId] = useState()
+
+	// useEffect
+	// useEffect(() => {
+	// 	setFilteredRows(rows)
+	// }, [])
+
+	let searchCustomer = rows.filter((row) => row.id == customerId)
+	console.log(searchCustomer)
+
+	return (
 		<MDBox sx={{ display: 'flex', alignItems: 'flex-end' }}>
 			<PersonSearchIcon sx={{ mr: 1, my: 0.5 }} />
+
 			<TextField
 				fullWidth
 				autoComplete="off"
+				// value={customerId}
+				onChange={(e) => setCustomerId(e.target.value)}
 				type="search"
 				label="Search Customer"
 				variant="standard"
 			/>
+
+			<IconButton>
+				<SearchRoundedIcon
+					sx={{ mr: 1, my: 0.5 }}
+					onClick={() => {
+						setFilteredRows(searchCustomer)
+					}}
+				/>
+			</IconButton>
 		</MDBox>
-)
+	)
+}
 
 export default SearchCustomer

@@ -48,6 +48,7 @@ const Tables = () => {
 
 	// states
 	const [rows, setRows] = useState([])
+	const [filteredRows, setFilteredRows] = useState([])
 
 	// fetching customers from api
 	useEffect(() => {
@@ -80,11 +81,15 @@ const Tables = () => {
 
 							<MDBox p={3} height="auto">
 								{/* table action buttons & inout field */}
-								<TableAction />
+								<TableAction
+									rows={rows}
+									setRows={setRows}
+									setFilteredRows={setFilteredRows}
+								/>
 
 								{/* data-grid table */}
 								<DataGrid
-									rows={rows}
+									rows={filteredRows.length > 0 ? filteredRows : rows}
 									columns={columns}
 									autoHeight={true}
 									headerHeight={88}

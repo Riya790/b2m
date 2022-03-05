@@ -19,6 +19,7 @@ import DashboardNavbar from 'examples/Navbars/DashboardNavbar'
 import Footer from 'examples/Footer'
 import ReportsBarChart from 'examples/Charts/BarCharts/ReportsBarChart'
 import ReportsLineChart from 'examples/Charts/LineCharts/ReportsLineChart'
+// import PieChart from 'examples/Charts/PieChart'
 import ComplexStatisticsCard from 'examples/Cards/StatisticsCards/ComplexStatisticsCard'
 
 // Data
@@ -136,6 +137,17 @@ function Dashboard() {
 								/>
 							</MDBox>
 						</Grid>
+						{/* <Grid item xs={12} md={12} lg={12}>
+							<MDBox mb={3} height="73vh">
+								<PieChart
+									color="dark"
+									title="completed tasks"
+									description="Last Campaign Performance"
+									date="just updated"
+									// chart={tasks}
+								/>
+							</MDBox>
+						</Grid> */}
 					</Grid>
 				</MDBox>
 				{/* <MDBox> */}

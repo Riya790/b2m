@@ -44,7 +44,6 @@ function ReportsBarChart({ color, title, description, date, chart }) {
 							pr={0.5}
 							mt={-5}
 							height="65vh"
-							// fullHeight
 						>
 							<Bar data={data} options={options} />
 						</MDBox>
