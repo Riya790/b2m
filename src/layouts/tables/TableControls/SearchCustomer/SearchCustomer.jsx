@@ -1,48 +1,36 @@
 /* eslint-disable */
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { TextField, Modal, IconButton } from '@mui/material'
+import { TextField } from '@mui/material'
 
 import PersonSearchIcon from '@mui/icons-material/PersonSearch'
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
+
+// context api
+import { useMaterialUIController } from 'context'
 
 import MDBox from 'components/MDBox'
 
-const SearchCustomer = ({ rows, setFilteredRows }) => {
-	// state
-	const [customerId, setCustomerId] = useState()
-
-	// useEffect
-	// useEffect(() => {
-	// 	setFilteredRows(rows)
-	// }, [])
-
-	let searchCustomer = rows.filter((row) => row.id == customerId)
-	console.log(searchCustomer)
+const SearchCustomer = ({ setCustomerId }) => {
+	// hooks
+	const [controller] = useMaterialUIController()
+	const { darkMode } = controller
 
 	return (
 		<MDBox sx={{ display: 'flex', alignItems: 'flex-end' }}>
-			<PersonSearchIcon sx={{ mr: 1, my: 0.5 }} />
+			<PersonSearchIcon
+				sx={{ mr: 1, my: 0.5 }}
+				color={darkMode ? 'success' : 'error'}
+			/>
 
 			<TextField
 				fullWidth
 				autoComplete="off"
-				// value={customerId}
 				onChange={(e) => setCustomerId(e.target.value)}
 				type="search"
 				label="Search Customer"
 				variant="standard"
 			/>
-
-			<IconButton>
-				<SearchRoundedIcon
-					sx={{ mr: 1, my: 0.5 }}
-					onClick={() => {
-						setFilteredRows(searchCustomer)
-					}}
-				/>
-			</IconButton>
 		</MDBox>
 	)
 }

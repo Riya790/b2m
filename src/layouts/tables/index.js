@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 // @mui material components
 import React, { useState, useEffect } from 'react'
@@ -15,8 +8,6 @@ import Card from '@mui/material/Card'
 // import { makeStyles } from "@material-ui/core";
 
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
-
-// import { useAxios } from "use-axios-client";
 
 // context api
 import { useMaterialUIController } from 'context'
@@ -48,14 +39,18 @@ const Tables = () => {
 
 	// states
 	const [rows, setRows] = useState([])
+	const [customerId, setCustomerId] = useState(-1)
 	const [filteredRows, setFilteredRows] = useState([])
 
-	// fetching customers from api
+	// fetching rows from api
 	useEffect(() => {
 		ReadData().then((data) => {
 			setRows(data.data)
 		})
 	}, [])
+
+	// filtered rows based on customer id
+	const searchCustomer = rows.filter((row) => row.id == customerId)
 
 	return (
 		<DashboardLayout>
@@ -84,12 +79,19 @@ const Tables = () => {
 								<TableAction
 									rows={rows}
 									setRows={setRows}
+									setCustomerId={setCustomerId}
 									setFilteredRows={setFilteredRows}
 								/>
 
 								{/* data-grid table */}
 								<DataGrid
-									rows={filteredRows.length > 0 ? filteredRows : rows}
+									rows={
+										searchCustomer.length > 0
+											? searchCustomer
+											: filteredRows.length > 0
+											? filteredRows
+											: rows
+									}
 									columns={columns}
 									autoHeight={true}
 									headerHeight={88}

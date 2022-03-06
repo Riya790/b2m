@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import * as React from 'react'
 
@@ -23,7 +16,7 @@ import {
 	SearchCustomer,
 } from '../TableControls'
 
-const TableAction = ({ rows, setRows, setFilteredRows }) => {
+const TableAction = ({ setCustomerId, rows, setRows, setFilteredRows }) => {
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={6} sm={6} lg={3}>
@@ -43,7 +36,11 @@ const TableAction = ({ rows, setRows, setFilteredRows }) => {
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>
-				<AdvancedSearch />
+				<AdvancedSearch
+					rows={rows}
+					setRows={setRows}
+					setFilteredRows={setFilteredRows}
+				/>
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>
@@ -51,11 +48,7 @@ const TableAction = ({ rows, setRows, setFilteredRows }) => {
 			</Grid>
 
 			<Grid item xs={12} sm={12} lg={6} mb={2}>
-				<SearchCustomer
-					rows={rows}
-					setRows={setRows}
-					setFilteredRows={setFilteredRows}
-				/>
+				<SearchCustomer setCustomerId={setCustomerId} />
 			</Grid>
 		</Grid>
 	)

@@ -18,7 +18,7 @@ import MDButton from 'components/MDButton'
 
 import AdvancedSearchForm from '../../TableForms/AdvancedSearchForm/AdvancedSearchForm'
 
-const AdvancedSearch = () => {
+const AdvancedSearch = ({ rows, setRows, setFilteredRows }) => {
 	// states
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -55,7 +55,12 @@ const AdvancedSearch = () => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<AdvancedSearchForm setIsOpen={setIsOpen} />
+					<AdvancedSearchForm
+						setIsOpen={setIsOpen}
+						rows={rows}
+						setRows={setRows}
+						setFilteredRows={setFilteredRows}
+					/>
 				</Box>
 			</Modal>
 		</>

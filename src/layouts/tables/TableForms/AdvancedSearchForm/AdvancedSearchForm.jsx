@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import React from 'react'
 
@@ -26,7 +19,8 @@ const validationSchema = yup.object({
 	business_year: yup.string().required('Business Year is required'),
 })
 
-const AdvancedSearchForm = ({ setIsOpen }) => {
+const AdvancedSearchForm = ({ setIsOpen, rows, setRows, setFilteredRows }) => {
+	// formik handler
 	const formik = useFormik({
 		initialValues: {
 			doc_id: '',
@@ -35,8 +29,19 @@ const AdvancedSearchForm = ({ setIsOpen }) => {
 			business_year: '',
 		},
 		validationSchema: validationSchema,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2))
+		onSubmit: ({ doc_id, cust_number, invoice_id, business_year }) => {
+			alert(JSON.stringify(cust_number))
+			const result = rows.filter(
+				(row) =>
+					row.doc_id == doc_id &&
+					row.cust_number == cust_number &&
+					row.invoice_id == invoice_id &&
+					row.business_year == business_year
+			)
+
+			setIsOpen(false)
+			setFilteredRows(result)
+			console.log(result)
 		},
 	})
 
