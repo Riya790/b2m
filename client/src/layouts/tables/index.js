@@ -1,10 +1,9 @@
 /* eslint-disable */
 
 // @mui material components
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 
-import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
+import { Grid, Card, Alert, Snackbar } from '@mui/material'
 // import { makeStyles } from "@material-ui/core";
 
 import { DataGrid, GridToolbar } from '@mui/x-data-grid'
@@ -15,6 +14,7 @@ import { useMaterialUIController } from 'context'
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox'
 import MDTypography from 'components/MDTypography'
+import MDSnackbar from 'components/MDSnackbar'
 import MDPagination from 'components/MDPagination'
 
 // Material Dashboard 2 React example components
@@ -27,7 +27,6 @@ import TableAction from './TableAction/TableAction'
 
 // Data
 import columns from './TableData/Columns/columns'
-// import { rows } from "./TableData/Rows/rows";
 
 // api
 import { ReadData } from '../../api/ReadData'
@@ -41,6 +40,8 @@ const Tables = () => {
 	const [rows, setRows] = useState([])
 	const [customerId, setCustomerId] = useState(-1)
 	const [filteredRows, setFilteredRows] = useState([])
+	const [openSnackBar, setOpenSnackBar] = useState(false)
+	const [snackBar, setSnackBar] = useState({})
 
 	// fetching rows from api
 	useEffect(() => {
@@ -79,8 +80,10 @@ const Tables = () => {
 								<TableAction
 									rows={rows}
 									setRows={setRows}
+									setSnackBar={setSnackBar}
 									setCustomerId={setCustomerId}
 									setFilteredRows={setFilteredRows}
+									// setOpenSnackBar={setOpenSnackBar}
 								/>
 
 								{/* data-grid table */}
@@ -110,6 +113,15 @@ const Tables = () => {
 					</Grid>
 				</Grid>
 			</MDBox>
+
+			{/* snackbar alert */}
+			<MDSnackbar
+				setFilteredRows={setFilteredRows}
+				snackBar={snackBar}
+				setSnackBar={setSnackBar}
+			/>
+
+			{/* footer */}
 			<Footer />
 		</DashboardLayout>
 	)

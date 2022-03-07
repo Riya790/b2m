@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import React, { useState } from 'react'
 
@@ -18,7 +11,7 @@ import MDButton from 'components/MDButton'
 
 import AdvancedSearchForm from '../../TableForms/AdvancedSearchForm/AdvancedSearchForm'
 
-const AdvancedSearch = ({ rows, setRows, setFilteredRows }) => {
+const AdvancedSearch = ({ rows, setRows, setFilteredRows, setSnackBar }) => {
 	// states
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -60,6 +53,7 @@ const AdvancedSearch = ({ rows, setRows, setFilteredRows }) => {
 						rows={rows}
 						setRows={setRows}
 						setFilteredRows={setFilteredRows}
+						setSnackBar={setSnackBar}
 					/>
 				</Box>
 			</Modal>

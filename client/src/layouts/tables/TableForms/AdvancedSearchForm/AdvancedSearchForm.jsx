@@ -19,7 +19,12 @@ const validationSchema = yup.object({
 	business_year: yup.string().required('Business Year is required'),
 })
 
-const AdvancedSearchForm = ({ setIsOpen, rows, setRows, setFilteredRows }) => {
+const AdvancedSearchForm = ({
+	setIsOpen,
+	rows,
+	setFilteredRows,
+	setSnackBar,
+}) => {
 	// formik handler
 	const formik = useFormik({
 		initialValues: {
@@ -41,6 +46,12 @@ const AdvancedSearchForm = ({ setIsOpen, rows, setRows, setFilteredRows }) => {
 
 			setIsOpen(false)
 			setFilteredRows(result)
+			setSnackBar((prevState) => ({
+				...prevState,
+				open: true,
+				color: 'warning',
+				alert_message: 'Remove Advanced Search!',
+			}))
 			console.log(result)
 		},
 	})
