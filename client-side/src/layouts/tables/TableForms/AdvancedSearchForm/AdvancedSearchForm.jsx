@@ -125,7 +125,10 @@ const AdvancedSearchForm = ({ setIsOpen, rows, setRows, setFilteredRows }) => {
 						<Grid item xs={12} sm={6} md={6} lg={6}>
 							<MDButton
 								fullWidth
-								onClick={() => setIsOpen(false)}
+								onClick={() => {
+									setIsOpen(false)
+									setFilteredRows([])
+								}}
 								variant="gradient"
 								color="secondary"
 							>
