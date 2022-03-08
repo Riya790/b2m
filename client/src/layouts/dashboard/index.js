@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 // @mui material components
 import Grid from '@mui/material/Grid'
@@ -20,13 +13,14 @@ import Footer from 'examples/Footer'
 import ReportsBarChart from 'examples/Charts/BarCharts/ReportsBarChart'
 import ReportsLineChart from 'examples/Charts/LineCharts/ReportsLineChart'
 import ReportsPieChart from 'examples/Charts/PieChart'
-// import PieChart from 'examples/Charts/PieChart'
+import DefaultDoughnutChart from 'examples/Charts/DoughnutCharts/DefaultDoughnutChart'
 import ComplexStatisticsCard from 'examples/Cards/StatisticsCards/ComplexStatisticsCard'
 
 // Data
 import reportsBarChartData from 'layouts/dashboard/data/reportsBarChartData'
 import reportsLineChartData from 'layouts/dashboard/data/reportsLineChartData'
 import reportsPieChartData from 'layouts/dashboard/data/reportsPieChartData'
+import reportsDoughnutChartData from 'layouts/dashboard/data/reportsDoughnutChartData'
 
 // Dashboard components
 // import Projects from "layouts/dashboard/components/Projects";
@@ -125,7 +119,7 @@ function Dashboard() {
 							</MDBox>
 						</Grid>
 
-						<Grid item xs={12} md={6} lg={6}>
+						{/* <Grid item xs={12} md={6} lg={6}>
 							<MDBox mb={3} height="73vh">
 								<ReportsLineChart
 									color="success"
@@ -139,7 +133,20 @@ function Dashboard() {
 									chart={sales}
 								/>
 							</MDBox>
+						</Grid> */}
+
+						<Grid item xs={12} md={6} lg={6}>
+							<MDBox mb={3} height="73vh">
+								<DefaultDoughnutChart
+									color="dark"
+									title="Customer Dues"
+									description="Customer Dues Report"
+									// date="campaign sent 2 days ago"
+									chart={reportsDoughnutChartData}
+								/>
+							</MDBox>
 						</Grid>
+
 						<Grid item xs={12} md={12} lg={12}>
 							<MDBox mb={3} height="73vh">
 								<ReportsLineChart

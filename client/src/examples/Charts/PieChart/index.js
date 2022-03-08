@@ -79,15 +79,15 @@ ReportsPieChart.defaultProps = {
 
 // Typechecking props for the ReportsBarChart
 ReportsPieChart.propTypes = {
-	// color: PropTypes.oneOf([
-	// 	'primary',
-	// 	'secondary',
-	// 	'info',
-	// 	'success',
-	// 	'warning',
-	// 	'error',
-	// 	'dark',
-	// ]),
+	color: PropTypes.oneOf([
+		'primary',
+		'secondary',
+		'info',
+		'success',
+		'warning',
+		'error',
+		'dark',
+	]),
 	title: PropTypes.string.isRequired,
 	description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 	date: PropTypes.string,

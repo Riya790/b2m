@@ -7,6 +7,6 @@ export default {
 		data: [5, 20, 75],
 		backgroundColors: ['usa', 'canada', 'india'],
 		hoverOffset: 4,
-		borderColor: '#000',
+		borderColor: '#fff',
 	},
 }
