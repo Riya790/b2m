@@ -2,8 +2,7 @@
   "name": "material-dashboard-2-react",
   "version": "2.1.0",
   "private": true,
-  "author": "Creative Tim",
-  "license": "See license in https://www.creative-tim.com/license",
+  "author": "saikatxshrey",
   "description": "React version of Material Dashboard 2 by Creative Tim",
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
@@ -33,6 +32,7 @@
     "@testing-library/user-event": "13.5.0",
     "axios": "^0.26.0",
     "chart.js": "3.4.1",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "chroma-js": "2.4.2",
     "date-fns": "^2.28.0",
     "formik": "^2.2.9",

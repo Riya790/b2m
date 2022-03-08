@@ -40,7 +40,6 @@ const Tables = () => {
 	const [rows, setRows] = useState([])
 	const [customerId, setCustomerId] = useState(-1)
 	const [filteredRows, setFilteredRows] = useState([])
-	const [openSnackBar, setOpenSnackBar] = useState(false)
 	const [snackBar, setSnackBar] = useState({})
 
 	// fetching rows from api
@@ -83,7 +82,6 @@ const Tables = () => {
 									setSnackBar={setSnackBar}
 									setCustomerId={setCustomerId}
 									setFilteredRows={setFilteredRows}
-									// setOpenSnackBar={setOpenSnackBar}
 								/>
 
 								{/* data-grid table */}

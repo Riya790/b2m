@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import { useMemo } from 'react'
 
@@ -16,9 +9,7 @@ import PropTypes from 'prop-types'
 import { Bar } from 'react-chartjs-2'
 
 // @mui material components
-import Card from '@mui/material/Card'
-import Divider from '@mui/material/Divider'
-import Icon from '@mui/material/Icon'
+import { Icon, Card, Divider } from '@mui/material'
 
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox'
@@ -96,7 +87,7 @@ ReportsBarChart.propTypes = {
 	]),
 	title: PropTypes.string.isRequired,
 	description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-	date: PropTypes.string.isRequired,
+	date: PropTypes.string,
 	chart: PropTypes.objectOf(
 		PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 	).isRequired,

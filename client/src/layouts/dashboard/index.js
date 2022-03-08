@@ -19,12 +19,14 @@ import DashboardNavbar from 'examples/Navbars/DashboardNavbar'
 import Footer from 'examples/Footer'
 import ReportsBarChart from 'examples/Charts/BarCharts/ReportsBarChart'
 import ReportsLineChart from 'examples/Charts/LineCharts/ReportsLineChart'
+import ReportsPieChart from 'examples/Charts/PieChart'
 // import PieChart from 'examples/Charts/PieChart'
 import ComplexStatisticsCard from 'examples/Cards/StatisticsCards/ComplexStatisticsCard'
 
 // Data
 import reportsBarChartData from 'layouts/dashboard/data/reportsBarChartData'
 import reportsLineChartData from 'layouts/dashboard/data/reportsLineChartData'
+import reportsPieChartData from 'layouts/dashboard/data/reportsPieChartData'
 
 // Dashboard components
 // import Projects from "layouts/dashboard/components/Projects";
@@ -100,7 +102,7 @@ function Dashboard() {
 				</Grid> */}
 				<MDBox mt={4.5}>
 					<Grid container spacing={3}>
-						<Grid item xs={12} md={6} lg={6}>
+						{/* <Grid item xs={12} md={6} lg={6}>
 							<MDBox mb={3} height="73vh">
 								<ReportsBarChart
 									color="info"
@@ -110,7 +112,19 @@ function Dashboard() {
 									chart={reportsBarChartData}
 								/>
 							</MDBox>
+						</Grid> */}
+						<Grid item xs={12} md={6} lg={6}>
+							<MDBox mb={3} height="73vh">
+								<ReportsPieChart
+									color="dark"
+									title="Currency"
+									description="Customer Currency Report"
+									// date="campaign sent 2 days ago"
+									chart={reportsPieChartData}
+								/>
+							</MDBox>
 						</Grid>
+
 						<Grid item xs={12} md={6} lg={6}>
 							<MDBox mb={3} height="73vh">
 								<ReportsLineChart
