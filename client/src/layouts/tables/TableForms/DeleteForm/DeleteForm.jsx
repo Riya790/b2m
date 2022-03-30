@@ -18,7 +18,9 @@ import MDButton from 'components/MDButton'
 import MDBox from 'components/MDBox'
 import MDTypography from 'components/MDTypography'
 
-const DeleteForm = ({ setIsOpen }) => {
+import { DeleteData } from '../../../../api/DeleteData'
+
+const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen }) => {
 	// hooks
 	const [controller] = useMaterialUIController()
 	const { darkMode } = controller
@@ -47,7 +49,12 @@ const DeleteForm = ({ setIsOpen }) => {
 
 				<Grid container spacing={2} pt={2}>
 					<Grid item xs={12} sm={6} md={6} lg={6}>
-						<MDButton fullWidth variant="gradient" color="error">
+						<MDButton
+							fullWidth
+							variant="gradient"
+							color="error"
+							onClick={() => DeleteData(deleteRows)}
+						>
 							Delete ?
 						</MDButton>
 					</Grid>

@@ -17,7 +17,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import MDButton from 'components/MDButton'
 import DeleteForm from '../../TableForms/DeleteForm/DeleteForm'
 
-const Delete = () => {
+const Delete = ({ deleteRows, setDeleteRows }) => {
 	// states
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -57,7 +57,11 @@ const Delete = () => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<DeleteForm setIsOpen={setIsOpen} />
+					<DeleteForm
+						deleteRows={deleteRows}
+						setDeleteRows={setDeleteRows}
+						setIsOpen={setIsOpen}
+					/>
 				</Box>
 			</Modal>
 		</>

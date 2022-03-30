@@ -13,6 +13,9 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
+// api
+import { CreateData } from '../../../../api/CreateData'
+
 import MDButton from 'components/MDButton'
 import MDBox from 'components/MDBox'
 import MDTypography from 'components/MDTypography'
@@ -57,7 +60,8 @@ const AddForm = ({ setIsOpen }) => {
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2))
+			CreateData(values)
+			alert(JSON.stringify(values))
 		},
 	})
 
@@ -102,7 +106,7 @@ const AddForm = ({ setIsOpen }) => {
 									}
 									type="baseline_create_date"
 									label="Baseline Create Date"
-									inputFormat="MM/dd/yyyy"
+									inputFormat="yyyy/MM/dd"
 									error={Boolean(errors.baseline_create_date)}
 									helperText={
 										touched.baseline_create_date && errors.baseline_create_date
@@ -142,7 +146,7 @@ const AddForm = ({ setIsOpen }) => {
 									onChange={(newValue) => setFieldValue('clear_date', newValue)}
 									type="clear_date"
 									label="Clear Date"
-									inputFormat="MM/dd/yyyy"
+									inputFormat="yyyy/MM/dd"
 									error={Boolean(errors.clear_date)}
 									helperText={touched.clear_date && errors.clear_date}
 									renderInput={(params) => <TextField {...params} />}
@@ -184,7 +188,7 @@ const AddForm = ({ setIsOpen }) => {
 									}
 									type="doc_create_date"
 									label="Document Create Date"
-									inputFormat="MM/dd/yyyy"
+									inputFormat="yyyy/MM/dd"
 									error={Boolean(errors.doc_create_date)}
 									helperText={touched.doc_create_date && errors.doc_create_date}
 									renderInput={(params) => <TextField {...params} />}
@@ -222,7 +226,7 @@ const AddForm = ({ setIsOpen }) => {
 									onChange={(newValue) => setFieldValue('due_date', newValue)}
 									type="due_date"
 									label="Due Date"
-									inputFormat="MM/dd/yyyy"
+									inputFormat="yyyy/MM/dd"
 									error={Boolean(errors.due_date)}
 									helperText={touched.due_date && errors.due_date}
 									renderInput={(params) => <TextField {...params} />}
@@ -262,7 +266,7 @@ const AddForm = ({ setIsOpen }) => {
 									}
 									type="posting_date"
 									label="Posting Date"
-									inputFormat="MM/dd/yyyy"
+									inputFormat="yyyy/MM/dd"
 									error={Boolean(errors.posting_date)}
 									helperText={touched.posting_date && errors.posting_date}
 									renderInput={(params) => <TextField {...params} />}

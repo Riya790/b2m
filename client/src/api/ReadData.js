@@ -1,18 +1,12 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-empty */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
-import axios from 'axios';
-
-import url from './url/url'
+import axios from 'axios'
 
 export const ReadData = async () => {
-    try {
-        const data = await axios.get(url)
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
+	try {
+		const data = await axios.get('http://localhost:5005/HRC_Backend/fetch')
+		return data
+	} catch (error) {
+		console.log(error)
+	}
 }

@@ -22,6 +22,8 @@ const TableAction = ({
 	setRows,
 	setFilteredRows,
 	setSnackBar,
+	deleteRows,
+	setDeleteRows,
 }) => {
 	return (
 		<Grid container spacing={3}>
@@ -34,7 +36,7 @@ const TableAction = ({
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>
-				<Delete />
+				<Delete deleteRows={deleteRows} setDeleteRows={setDeleteRows} />
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>

@@ -40,7 +40,11 @@ const Tables = () => {
 	const [rows, setRows] = useState([])
 	const [customerId, setCustomerId] = useState(-1)
 	const [filteredRows, setFilteredRows] = useState([])
+	const [deleteRows, setDeleteRows] = useState()
 	const [snackBar, setSnackBar] = useState({})
+
+	// rows to be deleted
+	console.log(deleteRows)
 
 	// fetching rows from api
 	useEffect(() => {
@@ -82,6 +86,8 @@ const Tables = () => {
 									setSnackBar={setSnackBar}
 									setCustomerId={setCustomerId}
 									setFilteredRows={setFilteredRows}
+									deleteRows={deleteRows}
+									setDeleteRows={setDeleteRows}
 								/>
 
 								{/* data-grid table */}
@@ -104,7 +110,8 @@ const Tables = () => {
 									}}
 									disableColumnMenu={darkMode ? true : false}
 									checkboxSelection
-									disableSelectionOnClick
+									// disableSelectionOnClick
+									onSelectionModelChange={(id) => setDeleteRows(id)}
 								/>
 							</MDBox>
 						</Card>
