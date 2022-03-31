@@ -28,15 +28,23 @@ const TableAction = ({
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={6} sm={6} lg={3}>
-				<Add />
+				<Add setSnackBar={setSnackBar} />
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>
-				<Edit />
+				<Edit
+					deleteRows={deleteRows}
+					setDeleteRows={setDeleteRows}
+					setSnackBar={setSnackBar}
+				/>
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>
-				<Delete deleteRows={deleteRows} setDeleteRows={setDeleteRows} />
+				<Delete
+					deleteRows={deleteRows}
+					setDeleteRows={setDeleteRows}
+					setSnackBar={setSnackBar}
+				/>
 			</Grid>
 
 			<Grid item xs={6} sm={6} lg={3}>

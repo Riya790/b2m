@@ -22,9 +22,6 @@ export const CreateData = async ({
 	const res = await axios({
 		method: 'POST',
 		url: 'http://localhost:5005/HRC_Backend/create',
-		// headers: {
-		// 	'Content-Type': 'application/json',
-		// },
 		data: {
 			baseline_create_date: baseline_create_date,
 			business_code: business_code,
@@ -34,7 +31,7 @@ export const CreateData = async ({
 			cust_number: cust_number,
 			doc_create_date: doc_create_date,
 			doc_id: doc_id,
-			doc_type: doc_type,
+			document_type: doc_type,
 			due_date: due_date,
 			invoice_id: invoice_id,
 			invoice_currency: invoice_currency,
@@ -44,5 +41,5 @@ export const CreateData = async ({
 		},
 	})
 
-	console.log(res.data.config)
+	return res.data
 }

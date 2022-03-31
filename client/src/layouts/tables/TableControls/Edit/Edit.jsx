@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import MDButton from 'components/MDButton'
 import EditForm from '../../TableForms/EditForm/EditForm'
 
-const Edit = () => {
+const Edit = ({ deleteRows, setDeleteRows, setSnackBar }) => {
 	//  states
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -50,7 +50,12 @@ const Edit = () => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<EditForm setIsOpen={setIsOpen} />
+					<EditForm
+						setIsOpen={setIsOpen}
+						deleteRows={deleteRows}
+						setDeleteRows={setDeleteRows}
+						setSnackBar={setSnackBar}
+					/>
 				</Box>
 			</Modal>
 		</>

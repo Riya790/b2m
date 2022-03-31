@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import React from 'react'
 
@@ -20,7 +13,7 @@ import MDTypography from 'components/MDTypography'
 
 import { DeleteData } from '../../../../api/DeleteData'
 
-const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen }) => {
+const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen, setSnackBar }) => {
 	// hooks
 	const [controller] = useMaterialUIController()
 	const { darkMode } = controller
@@ -53,7 +46,33 @@ const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen }) => {
 							fullWidth
 							variant="gradient"
 							color="error"
-							onClick={() => DeleteData(deleteRows)}
+							onClick={() => {
+								DeleteData(deleteRows)
+									.then((res) => {
+										setSnackBar((prevState) => ({
+											...prevState,
+											open: true,
+											color:
+												res == 'Deleted from Database' ? 'success' : 'error',
+											alert_message: res,
+										}))
+									})
+									.catch((err) => {
+										setSnackBar((prevState) => ({
+											...prevState,
+											open: true,
+											color: 'error',
+											alert_message: 'Something Went Wrong',
+										}))
+									})
+
+								setIsOpen(false)
+
+								// reload
+								setTimeout(() => {
+									location.reload()
+								}, 2000)
+							}}
 						>
 							Delete ?
 						</MDButton>

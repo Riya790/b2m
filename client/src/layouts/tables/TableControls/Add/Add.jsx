@@ -10,7 +10,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1'
 import MDButton from 'components/MDButton'
 import ADDForm from '../../TableForms/AddForm/AddForm'
 
-const Add = () => {
+const Add = ({ setSnackBar }) => {
 	// states
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -47,7 +47,7 @@ const Add = () => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<ADDForm setIsOpen={setIsOpen} />
+					<ADDForm setIsOpen={setIsOpen} setSnackBar={setSnackBar} />
 				</Box>
 			</Modal>
 		</>

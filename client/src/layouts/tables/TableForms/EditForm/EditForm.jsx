@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import React from 'react'
 
@@ -18,13 +11,15 @@ import MDButton from 'components/MDButton'
 import MDBox from 'components/MDBox'
 import MDTypography from 'components/MDTypography'
 
+import { UpdateData } from '../../../../api/UpdateData'
+
 // yup validation object
 const validationSchema = yup.object({
 	currency: yup.string().required('Currency is required'),
 	payment_terms: yup.string().required('Payment Terms is required'),
 })
 
-const EditForm = ({ setIsOpen }) => {
+const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 	const formik = useFormik({
 		initialValues: {
 			currency: '',
@@ -33,6 +28,30 @@ const EditForm = ({ setIsOpen }) => {
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2))
+			UpdateData(values, deleteRows)
+				.then((res) => {
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: res == 'Data Edited' ? 'success' : 'error',
+						alert_message: res,
+					}))
+				})
+				.catch((err) => {
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: 'error',
+						alert_message: 'Something Went Wrong',
+					}))
+				})
+
+			setIsOpen(false)
+
+			// reload
+			setTimeout(() => {
+				location.reload()
+			}, 2000)
 		},
 	})
 

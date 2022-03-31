@@ -39,7 +39,7 @@ const validationSchema = yup.object({
 	total_open_amount: yup.string().required('Total Open Amount is required'),
 })
 
-const AddForm = ({ setIsOpen }) => {
+const AddForm = ({ setIsOpen, setSnackBar }) => {
 	const formik = useFormik({
 		initialValues: {
 			baseline_create_date: new Date(),
@@ -60,8 +60,32 @@ const AddForm = ({ setIsOpen }) => {
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			CreateData(values)
 			alert(JSON.stringify(values))
+
+			CreateData(values)
+				.then((res) => {
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: res == 'Created at Database' ? 'success' : 'error',
+						alert_message: res,
+					}))
+				})
+				.catch((err) => {
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: 'error',
+						alert_message: 'Something Went Wrong',
+					}))
+				})
+
+			setIsOpen(false)
+
+			// reload
+			setTimeout(() => {
+				location.reload()
+			}, 2000)
 		},
 	})
 
