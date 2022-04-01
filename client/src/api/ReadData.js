@@ -3,10 +3,10 @@
 import axios from 'axios'
 
 export const ReadData = async () => {
-	try {
-		const data = await axios.get('http://localhost:5005/HRC_Backend/fetch')
-		return data
-	} catch (error) {
-		console.log(error)
-	}
+	const res = await axios({
+		method: 'GET',
+		url: 'http://localhost:5005/HRC_Backend/fetch',
+	})
+
+	return res.data
 }

@@ -70,6 +70,11 @@ const colors = {
 		focus: '#f48c06',
 	},
 
+	purple: {
+		main: '#9d4edd',
+		focus: '#724cf9',
+	},
+
 	grey: {
 		100: '#f8f9fa',
 		200: '#f0f2f5',
@@ -126,6 +131,11 @@ const colors = {
 		orange: {
 			main: '#ffaa00',
 			state: '#f48c06',
+		},
+
+		purple: {
+			main: '#9d4edd',
+			focus: '#724cf9',
 		},
 	},
 
@@ -251,6 +261,11 @@ const colors = {
 			background: '#ffaa00',
 			text: '#000',
 		},
+
+		purple: {
+			main: '#9d4edd',
+			text: '#000',
+		},
 	},
 
 	coloredShadows: {
@@ -263,6 +278,7 @@ const colors = {
 		light: '#adb5bd',
 		dark: '#404040',
 		orange: '#ffaa00',
+		purple: '#9d4edd',
 	},
 
 	inputBorderColor: '#d2d6da',

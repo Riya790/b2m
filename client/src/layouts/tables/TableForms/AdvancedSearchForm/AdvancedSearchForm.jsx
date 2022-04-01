@@ -13,10 +13,22 @@ import MDTypography from 'components/MDTypography'
 
 // yup validation object
 const validationSchema = yup.object({
-	doc_id: yup.string().required('Document ID is required'),
-	cust_number: yup.string().required('Customer Number is required'),
-	invoice_id: yup.string().required('Invoice ID is required'),
-	business_year: yup.string().required('Business Year is required'),
+	doc_id: yup
+		.string()
+		.required('Document ID is required')
+		.max(10, 'Document ID must be within 10 character'),
+	cust_number: yup
+		.string()
+		.required('Customer Number is required')
+		.max(11, 'Customer Number must be within 11 character'),
+	invoice_id: yup
+		.string()
+		.required('Invoice ID is required')
+		.max(11, 'Invoice ID must be within 11 character'),
+	business_year: yup
+		.string()
+		.required('Business Year is required')
+		.max(4, 'Business Year must be within 4 character'),
 })
 
 const AdvancedSearchForm = ({
@@ -45,14 +57,24 @@ const AdvancedSearchForm = ({
 			)
 
 			setIsOpen(false)
-			setFilteredRows(result)
-			setSnackBar((prevState) => ({
-				...prevState,
-				open: true,
-				color: 'warning',
-				alert_message: 'Remove Advanced Search!',
-			}))
-			console.log(result)
+
+			if (result.length > 0) {
+				setFilteredRows(result)
+
+				setSnackBar((prevState) => ({
+					...prevState,
+					open: true,
+					color: 'success',
+					alert_message: 'Search Results Found!',
+				}))
+			} else {
+				setSnackBar((prevState) => ({
+					...prevState,
+					open: true,
+					color: 'error',
+					alert_message: 'No Search Results Found!',
+				}))
+			}
 		},
 	})
 

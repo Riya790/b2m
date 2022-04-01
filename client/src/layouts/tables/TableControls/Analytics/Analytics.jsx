@@ -12,10 +12,12 @@ const Analytics = () => {
 	return (
 		<MDButton
 			fullWidth
-			component={Link}
-			to="/dashboard"
+			// target="_blank"
+			// component={Link}
+			// to="/dashboard"
 			variant="gradient"
 			color="primary"
+			onClick={() => window.open('/dashboard', '_blank')}
 			startIcon={<AutoGraphIcon />}
 		>
 			Analytics

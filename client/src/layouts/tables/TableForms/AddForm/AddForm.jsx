@@ -23,19 +23,46 @@ import MDTypography from 'components/MDTypography'
 // yup validation object
 const validationSchema = yup.object({
 	baseline_create_date: yup.date().required('Baseline Create Date is required'),
-	business_code: yup.string().required('Business Code is required'),
-	business_year: yup.string().required('Business Year is required'),
+	business_code: yup
+		.string()
+		.required('Business Code is required')
+		.max(10, 'Business Code must be within 10 character'),
+	business_year: yup
+		.string()
+		.required('Business Year is required')
+		.max(4, 'Business Year must be within 4 character'),
 	clear_date: yup.date().required('Clear Date is required'),
-	cust_payment_terms: yup.string().required('Baseline Create Date is required'),
-	cust_number: yup.string().required('Customer Number is required'),
+	cust_payment_terms: yup
+		.string()
+		.required('Customer Payment Terms is required')
+		.max(5, 'Customer Payment Term must be within 5 character'),
+	cust_number: yup
+		.string()
+		.required('Customer Number is required')
+		.max(11, 'Customer Number must be within 11 character'),
 	doc_create_date: yup.date().required('Document Create Date is required'),
-	doc_id: yup.string().required('Document ID is required'),
-	doc_type: yup.string().required('Document Type is required'),
+	doc_id: yup
+		.string()
+		.required('Document ID is required')
+		.max(10, 'Document ID must be within 10 character'),
+	doc_type: yup
+		.string()
+		.required('Document Type is required')
+		.max(5, 'Document Type must be within 5 character'),
 	due_date: yup.date().required('Due Date is required'),
-	invoice_id: yup.string().required('Invoice ID is required'),
-	invoice_currency: yup.string().required('Invoice Currency is required'),
+	invoice_id: yup
+		.string()
+		.required('Invoice ID is required')
+		.max(11, 'Invoice ID must be within 11 character'),
+	invoice_currency: yup
+		.string()
+		.required('Invoice Currency is required')
+		.max(5, 'Invoice Currency must be within 5 character'),
 	posting_date: yup.date().required('Posting Date is required'),
-	posting_id: yup.string().required('Posting ID is required'),
+	posting_id: yup
+		.string()
+		.required('Posting ID is required')
+		.max(11, 'Posting ID must be within 11 character'),
 	total_open_amount: yup.string().required('Total Open Amount is required'),
 })
 
@@ -68,7 +95,8 @@ const AddForm = ({ setIsOpen, setSnackBar }) => {
 						...prevState,
 						open: true,
 						color: res == 'Created at Database' ? 'success' : 'error',
-						alert_message: res,
+						alert_message:
+							res == 'Created at Database' ? res : 'Something Went Wrong',
 					}))
 				})
 				.catch((err) => {

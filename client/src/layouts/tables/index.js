@@ -43,12 +43,10 @@ const Tables = () => {
 	const [deleteRows, setDeleteRows] = useState()
 	const [snackBar, setSnackBar] = useState({})
 
-	// console.log(deleteRowsObject)
-
 	// fetching rows from api
 	useEffect(() => {
 		ReadData().then((data) => {
-			setRows(data.data)
+			setRows(data)
 		})
 	}, [])
 

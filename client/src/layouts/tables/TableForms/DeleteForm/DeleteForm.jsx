@@ -47,31 +47,47 @@ const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen, setSnackBar }) => {
 							variant="gradient"
 							color="error"
 							onClick={() => {
-								DeleteData(deleteRows)
-									.then((res) => {
-										setSnackBar((prevState) => ({
-											...prevState,
-											open: true,
-											color:
-												res == 'Deleted from Database' ? 'success' : 'error',
-											alert_message: res,
-										}))
-									})
-									.catch((err) => {
-										setSnackBar((prevState) => ({
-											...prevState,
-											open: true,
-											color: 'error',
-											alert_message: 'Something Went Wrong',
-										}))
-									})
+								if (deleteRows == undefined) {
+									setSnackBar((prevState) => ({
+										...prevState,
+										open: true,
+										color: 'error',
+										alert_message: 'Select Rows to Delete',
+									}))
 
-								setIsOpen(false)
+									setIsOpen(false)
 
-								// reload
-								setTimeout(() => {
-									location.reload()
-								}, 2000)
+									return
+								} else {
+									DeleteData(deleteRows)
+										.then((res) => {
+											setSnackBar((prevState) => ({
+												...prevState,
+												open: true,
+												color:
+													res == 'Deleted from Database' ? 'success' : 'error',
+												alert_message:
+													res == 'Deleted from Database'
+														? res
+														: 'Something Went Wrong',
+											}))
+										})
+										.catch((err) => {
+											setSnackBar((prevState) => ({
+												...prevState,
+												open: true,
+												color: 'error',
+												alert_message: 'Something Went Wrong',
+											}))
+										})
+
+									setIsOpen(false)
+
+									// reload
+									setTimeout(() => {
+										location.reload()
+									}, 2000)
+								}
 							}}
 						>
 							Delete ?

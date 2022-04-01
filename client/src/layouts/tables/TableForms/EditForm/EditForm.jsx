@@ -15,8 +15,14 @@ import { UpdateData } from '../../../../api/UpdateData'
 
 // yup validation object
 const validationSchema = yup.object({
-	currency: yup.string().required('Currency is required'),
-	payment_terms: yup.string().required('Payment Terms is required'),
+	currency: yup
+		.string()
+		.required('Currency is required')
+		.max(5, 'Currency must be within 5 letters'),
+	payment_terms: yup
+		.string()
+		.required('Payment Terms is required')
+		.max(5, 'Payment Term must be within 5 letters'),
 })
 
 const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
@@ -27,24 +33,38 @@ const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2))
-			UpdateData(values, deleteRows)
-				.then((res) => {
-					setSnackBar((prevState) => ({
-						...prevState,
-						open: true,
-						color: res == 'Data Edited' ? 'success' : 'error',
-						alert_message: res,
-					}))
-				})
-				.catch((err) => {
-					setSnackBar((prevState) => ({
-						...prevState,
-						open: true,
-						color: 'error',
-						alert_message: 'Something Went Wrong',
-					}))
-				})
+			if (deleteRows == undefined) {
+				setSnackBar((prevState) => ({
+					...prevState,
+					open: true,
+					color: 'error',
+					alert_message: 'Select Rows to Edit',
+				}))
+
+				setIsOpen(false)
+
+				return
+			} else {
+				alert(JSON.stringify(values, null, 2))
+				UpdateData(values, deleteRows)
+					.then((res) => {
+						setSnackBar((prevState) => ({
+							...prevState,
+							open: true,
+							color: res == 'Data Edited' ? 'success' : 'error',
+							alert_message:
+								res == 'Data Edited' ? res : 'Something Went Wrong',
+						}))
+					})
+					.catch((err) => {
+						setSnackBar((prevState) => ({
+							...prevState,
+							open: true,
+							color: 'error',
+							alert_message: 'Something Went Wrong',
+						}))
+					})
+			}
 
 			setIsOpen(false)
 

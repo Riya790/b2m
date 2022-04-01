@@ -1,11 +1,4 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import { useState, useEffect } from 'react'
 
@@ -21,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import Icon from '@mui/material/Icon'
+import Switch from '@mui/material/Switch'
 
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox'
@@ -44,6 +38,7 @@ import {
 	useMaterialUIController,
 	setTransparentNavbar,
 	setMiniSidenav,
+	setDarkMode,
 	setOpenConfigurator,
 } from 'context'
 
@@ -94,6 +89,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
 		setOpenConfigurator(dispatch, !openConfigurator)
 	const handleOpenMenu = (event) => setOpenMenu(event.currentTarget)
 	const handleCloseMenu = () => setOpenMenu(false)
+	const handleDarkMode = () => setDarkMode(dispatch, !darkMode)
 
 	// Render the notifications menu
 	const renderMenu = () => (
@@ -159,15 +155,15 @@ function DashboardNavbar({ absolute, light, isMini }) {
 				</MDBox>
 				{isMini ? null : (
 					<MDBox sx={(theme) => navbarRow(theme, { isMini })}>
-						<MDBox pr={1}>
+						{/* <MDBox pr={1}>
 							<MDInput label="Search here" />
-						</MDBox>
+						</MDBox> */}
 						<MDBox color={light ? 'white' : 'inherit'}>
-							<Link to="/authentication/sign-in/basic">
+							{/* <Link to="/authentication/sign-in/basic">
 								<IconButton sx={navbarIconButton} size="small" disableRipple>
 									<Icon sx={iconsStyle}>account_circle</Icon>
 								</IconButton>
-							</Link>
+							</Link> */}
 							<IconButton
 								size="small"
 								disableRipple
@@ -188,6 +184,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
 							>
 								<Icon sx={iconsStyle}>settings</Icon>
 							</IconButton>
+							<Switch checked={darkMode} onChange={handleDarkMode} />
 							{/* <IconButton
                 size="small"
                 disableRipple
