@@ -51,9 +51,10 @@ const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 						setSnackBar((prevState) => ({
 							...prevState,
 							open: true,
-							color: res == 'Data Edited' ? 'success' : 'error',
-							alert_message:
-								res == 'Data Edited' ? res : 'Something Went Wrong',
+							color: res.includes('Data Edited') ? 'success' : 'error',
+							alert_message: res.includes('Data Edited')
+								? 'Data Edited'
+								: 'Something Went Wrong',
 						}))
 					})
 					.catch((err) => {
