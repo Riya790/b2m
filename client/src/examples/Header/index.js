@@ -14,11 +14,11 @@ const Header = () => {
 	return (
 		<header>
 			<Grid container>
-				<Grid item xs={12} sm={6} lg={5}>
+				<Grid item xs={12} sm={12} lg={5}>
 					<Image className="shadow" src={product} responsive />
 				</Grid>
 
-				<Grid item xs={12} sm={6} lg={7}>
+				<Grid item xs={12} sm={12} lg={7}>
 					<Image className="shadow" src={company} responsive />
 				</Grid>
 			</Grid>

@@ -48,11 +48,6 @@ function Footer({ company, links }) {
 				px={1.5}
 			>
 				&copy; {new Date().getFullYear()}
-				{/* <MDBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
-          <Icon color="inherit" fontSize="inherit">
-            Corporation
-          </Icon>
-        </MDBox> */}
 				<Link href={href} target="_blank">
 					<MDTypography variant="button" fontWeight="medium">
 						&nbsp;{name}&nbsp;
@@ -88,9 +83,6 @@ Footer.defaultProps = {
 	company: { href: 'https://www.highradius.com/', name: 'HighRadius' },
 	links: [
 		{ href: 'https://saikat-das-website.netlify.app/', name: 'Saikat Das' },
-		// { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-		// { href: "https://www.creative-tim.com/blog", name: "Blog" },
-		// { href: "https://www.creative-tim.com/license", name: "License" },
 	],
 }
 
