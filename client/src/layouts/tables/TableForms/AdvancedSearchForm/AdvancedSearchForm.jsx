@@ -72,34 +72,6 @@ const AdvancedSearchForm = ({
 				})
 
 			setIsOpen(false)
-
-			// const result = rows.filter(
-			// 	(row) =>
-			// 		row.doc_id == values.doc_id &&
-			// 		row.cust_number == values.cust_number &&
-			// 		row.invoice_id == values.invoice_id &&
-			// 		row.business_year == values.business_year
-			// )
-
-			// setIsOpen(false)
-
-			// if (result.length > 0) {
-			// 	setFilteredRows(result)
-
-			// setSnackBar((prevState) => ({
-			// 	...prevState,
-			// 	open: true,
-			// 	color: 'success',
-			// 	alert_message: 'Search Results Found!',
-			// }))
-			// } else {
-			// setSnackBar((prevState) => ({
-			// 	...prevState,
-			// 	open: true,
-			// 	color: 'error',
-			// 	alert_message: 'No Search Results Found!',
-			// }))
-			// }
 		},
 	})
 

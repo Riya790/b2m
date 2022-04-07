@@ -20,13 +20,13 @@ export const AdvancedSearch = async ({
 	business_year,
 }) => {
 	const res = await axios({
-		method: 'POST',
+		method: 'GET',
 		url: 'http://localhost:5005/HRC_Backend/search',
-		data: {
+		params: {
 			doc_id: doc_id,
-			cust_number: cust_number,
 			invoice_id: invoice_id,
 			business_year: business_year,
+			cust_number: cust_number,
 		},
 	})
 
