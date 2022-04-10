@@ -32,3 +32,13 @@ export const AdvancedSearch = async ({
 
 	return res.data
 }
+
+// Curreny Pie Chart
+export const CurrencyChart = async () => {
+	const res = await axios({
+		method: 'GET',
+		url: 'http://localhost:5005/HRC_Backend/chart',
+	})
+
+	return res.data
+}

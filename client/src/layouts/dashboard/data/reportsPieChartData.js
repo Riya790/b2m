@@ -4,7 +4,7 @@ export default {
 	labels: ['USD', 'CAD', 'INR'],
 	datasets: {
 		label: 'Currency',
-		data: [5, 20, 75],
+		data: [10, 10, 80],
 		backgroundColors: ['usa', 'canada', 'india'],
 		hoverOffset: 4,
 		borderColor: '#fff',

@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+import React, { useState, useEffect } from 'react'
+
 // @mui material components
 import Grid from '@mui/material/Grid'
 
@@ -22,11 +24,30 @@ import reportsLineChartData from 'layouts/dashboard/data/reportsLineChartData'
 import reportsPieChartData from 'layouts/dashboard/data/reportsPieChartData'
 import reportsDoughnutChartData from 'layouts/dashboard/data/reportsDoughnutChartData'
 
+// api
+
+import { ReadData } from '../../api/ReadData'
+import { CurrencyChart } from '../../api/ReadData'
+
 // Dashboard components
 // import Projects from "layouts/dashboard/components/Projects";
 // import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
 function Dashboard() {
+	// usestate
+	const [length, setLength] = useState(0)
+	const [currency, setCurrency] = useState({})
+	const [dues, setDues] = useState({})
+
+	// fetching chart from api
+	useEffect(() => {
+		CurrencyChart().then((data) => {
+			setCurrency(data.currency)
+			setDues(data.isOpen)
+			setLength(data.count.total)
+		})
+	}, [])
+
 	const { sales, tasks } = reportsLineChartData
 
 	return (
@@ -114,7 +135,20 @@ function Dashboard() {
 									title="Currency"
 									description="Customer Currency Report"
 									// date="campaign sent 2 days ago"
-									chart={reportsPieChartData}
+									chart={{
+										labels: ['USD', 'CAD', 'INR'],
+										datasets: {
+											label: 'Currency',
+											data: [
+												((currency.USD / length) * 100).toFixed(2),
+												((currency.CAD / length) * 100).toFixed(2),
+												((currency.inr / length) * 100).toFixed(2),
+											],
+											backgroundColors: ['usa', 'canada', 'india'],
+											hoverOffset: 4,
+											borderColor: '#fff',
+										},
+									}}
 								/>
 							</MDBox>
 						</Grid>
@@ -142,7 +176,19 @@ function Dashboard() {
 									title="Customer Dues"
 									description="Customer Dues Report"
 									// date="campaign sent 2 days ago"
-									chart={reportsDoughnutChartData}
+									chart={{
+										labels: ['Paid', 'Unpaid'],
+										datasets: {
+											label: 'Customer Due',
+											data: [
+												((dues.close / length) * 100).toFixed(2),
+												((dues.open / length) * 100).toFixed(2),
+											],
+											backgroundColors: ['info', 'error'],
+											hoverOffset: 4,
+											borderColor: '#fff',
+										},
+									}}
 								/>
 							</MDBox>
 						</Grid>
