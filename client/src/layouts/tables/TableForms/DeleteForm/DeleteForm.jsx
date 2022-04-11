@@ -64,12 +64,12 @@ const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen, setSnackBar }) => {
 											setSnackBar((prevState) => ({
 												...prevState,
 												open: true,
-												color:
-													res == 'Deleted from Database' ? 'success' : 'error',
-												alert_message:
-													res == 'Deleted from Database'
-														? res
-														: 'Something Went Wrong',
+												color: res.includes('Deleted from Database')
+													? 'success'
+													: 'error',
+												alert_message: res.includes('Deleted from Database')
+													? 'Deleted from Database'
+													: 'Something Went Wrong',
 											}))
 										})
 										.catch((err) => {

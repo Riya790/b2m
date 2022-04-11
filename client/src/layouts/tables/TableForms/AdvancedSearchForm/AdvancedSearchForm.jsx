@@ -11,6 +11,8 @@ import MDButton from 'components/MDButton'
 import MDBox from 'components/MDBox'
 import MDTypography from 'components/MDTypography'
 
+import { AdvancedSearch } from './../../../../api/ReadData'
+
 // yup validation object
 const validationSchema = yup.object({
 	doc_id: yup
@@ -46,35 +48,30 @@ const AdvancedSearchForm = ({
 			business_year: '',
 		},
 		validationSchema: validationSchema,
-		onSubmit: ({ doc_id, cust_number, invoice_id, business_year }) => {
-			alert(JSON.stringify(cust_number))
-			const result = rows.filter(
-				(row) =>
-					row.doc_id == doc_id &&
-					row.cust_number == cust_number &&
-					row.invoice_id == invoice_id &&
-					row.business_year == business_year
-			)
+		onSubmit: (values) => {
+			alert(JSON.stringify(values))
+
+			AdvancedSearch(values)
+				.then((res) => {
+					setFilteredRows(res)
+
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: 'success',
+						alert_message: 'Search Results Found!',
+					}))
+				})
+				.catch((err) => {
+					setSnackBar((prevState) => ({
+						...prevState,
+						open: true,
+						color: 'error',
+						alert_message: err,
+					}))
+				})
 
 			setIsOpen(false)
-
-			if (result.length > 0) {
-				setFilteredRows(result)
-
-				setSnackBar((prevState) => ({
-					...prevState,
-					open: true,
-					color: 'success',
-					alert_message: 'Search Results Found!',
-				}))
-			} else {
-				setSnackBar((prevState) => ({
-					...prevState,
-					open: true,
-					color: 'error',
-					alert_message: 'No Search Results Found!',
-				}))
-			}
 		},
 	})
 

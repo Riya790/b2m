@@ -10,8 +10,8 @@ export const UpdateData = async (values, deleteRows) => {
 		url: 'http://localhost:5005/hrc_backend/edit',
 		data: {
 			list: deleteRows,
-			cust_payment_terms: payment_terms,
-			invoice_currency: currency,
+			cust_payment_terms: payment_terms.toUpperCase(),
+			invoice_currency: currency.toUpperCase(),
 		},
 	})
 

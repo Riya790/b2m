@@ -21,6 +21,7 @@ import MDPagination from 'components/MDPagination'
 import DashboardLayout from 'examples/LayoutContainers/DashboardLayout'
 import DashboardNavbar from 'examples/Navbars/DashboardNavbar'
 import Footer from 'examples/Footer'
+import Header from 'examples/Header'
 
 import TablePagination from '../../examples/Tables/TablePagination/TablePagination'
 import TableAction from './TableAction/TableAction'
@@ -55,6 +56,8 @@ const Tables = () => {
 
 	return (
 		<DashboardLayout>
+			<Header />
+
 			<DashboardNavbar />
 			<MDBox pt={6} pb={3}>
 				<Grid container spacing={6}>

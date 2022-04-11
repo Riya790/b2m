@@ -1,13 +1,11 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/named */
-/* eslint-disable import/first */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 export default {
-  labels: ["M", "T", "W", "T", "F", "S", "S"],
-  datasets: { label: "Sales", data: [50, 20, 10, 22, 50, 10, 40] },
-};
+	labels: ['B', 'R', 'W', 'T', 'F', 'S', 'S'],
+	datasets: {
+		label: 'Sales',
+		label2: 'SDE',
+		data: [50, 20, 10, 22, 50, 10, 40],
+		data2: [12, 23, 34, 45, 56, 67, 78],
+	},
+}
