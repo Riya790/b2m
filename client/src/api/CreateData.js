@@ -21,7 +21,7 @@ export const CreateData = async ({
 }) => {
 	const res = await axios({
 		method: 'POST',
-		url: 'http://localhost:5005/HRC_Backend/create',
+		url: 'http://localhost:5005/hrc_backend/create',
 		data: {
 			baseline_create_date: baseline_create_date,
 			business_code: business_code,
