@@ -34,7 +34,7 @@ function ReportsBarChart({ color, title, description, date, chart }) {
 							py={2}
 							pr={0.5}
 							mt={-5}
-							height="65vh"
+							height="90vh"
 						>
 							<Bar data={data} options={options} />
 						</MDBox>
@@ -49,7 +49,7 @@ function ReportsBarChart({ color, title, description, date, chart }) {
 						component="div"
 						variant="button"
 						color="text"
-						fontWeight="light"
+						fontWeight="bold"
 					>
 						{description}
 					</MDTypography>
