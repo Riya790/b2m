@@ -84,9 +84,9 @@ const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen, setSnackBar }) => {
 									setIsOpen(false)
 
 									// reload
-									setTimeout(() => {
-										location.reload()
-									}, 2000)
+									// setTimeout(() => {
+									// 	location.reload()
+									// }, 2000)
 								}
 							}}
 						>

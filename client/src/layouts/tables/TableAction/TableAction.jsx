@@ -13,6 +13,7 @@ import {
 	Predict,
 	AdvancedSearch,
 	Analytics,
+	Refresh,
 	SearchCustomer,
 } from '../TableControls'
 
@@ -64,8 +65,12 @@ const TableAction = ({
 				<Analytics />
 			</Grid>
 
-			<Grid item xs={12} sm={12} lg={6} mb={2}>
+			<Grid item xs={9} sm={11} lg={5} mb={2}>
 				<SearchCustomer setCustomerId={setCustomerId} />
+			</Grid>
+
+			<Grid item xs={3} sm={1} lg={1}>
+				<Refresh setRows={setRows} />
 			</Grid>
 		</Grid>
 	)

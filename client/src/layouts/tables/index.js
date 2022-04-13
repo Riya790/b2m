@@ -55,7 +55,8 @@ const Tables = () => {
 	const searchCustomer = rows.filter((row) => row.id == customerId)
 
 	return (
-		<DashboardLayout>
+		<>
+			<br />
 			<Header />
 
 			<DashboardNavbar />
@@ -128,7 +129,7 @@ const Tables = () => {
 
 			{/* footer */}
 			<Footer />
-		</DashboardLayout>
+		</>
 	)
 }
 
