@@ -178,15 +178,14 @@ function Dashboard() {
 									description="Customer Currency Report"
 									// date="campaign sent 2 days ago"
 									chart={{
-										labels: ['USD', 'CAD', 'INR'],
+										labels: ['USD', 'CAD'],
 										datasets: {
 											label: 'Currency',
 											data: [
 												((currency.USD / length) * 100).toFixed(2),
 												((currency.CAD / length) * 100).toFixed(2),
-												((currency.inr / length) * 100).toFixed(2),
 											],
-											backgroundColors: ['usa', 'canada', 'india'],
+											backgroundColors: ['usa', 'canada'],
 											hoverOffset: 4,
 											borderColor: '#fff',
 										},

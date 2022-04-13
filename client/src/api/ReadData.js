@@ -21,7 +21,7 @@ export const AdvancedSearch = async ({
 }) => {
 	const res = await axios({
 		method: 'GET',
-		url: 'http://localhost:5005/HRC_Backend/search',
+		url: 'http://localhost:5005/hrc_backend/search',
 		params: {
 			doc_id: doc_id,
 			invoice_id: invoice_id,
@@ -37,7 +37,7 @@ export const AdvancedSearch = async ({
 export const CurrencyChart = async () => {
 	const res = await axios({
 		method: 'GET',
-		url: 'http://localhost:5005/HRC_Backend/chart',
+		url: 'http://localhost:5005/hrc_backend/chart',
 	})
 
 	return res.data
