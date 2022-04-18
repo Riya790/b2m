@@ -38,7 +38,7 @@ const Edit = ({ deleteRows, setDeleteRows, setSnackBar }) => {
 				fullWidth
 				onClick={() => setIsOpen(true)}
 				variant="gradient"
-				color="secondary"
+				color="primary"
 				startIcon={<EditIcon />}
 			>
 				Edit

@@ -16,7 +16,7 @@ const Analytics = () => {
 			// component={Link}
 			// to="/dashboard"
 			variant="gradient"
-			color="primary"
+			color="secondary"
 			onClick={() => window.open('/dashboard', '_blank')}
 			startIcon={<AutoGraphIcon />}
 		>

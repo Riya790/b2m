@@ -45,13 +45,13 @@ const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 
 				return
 			} else {
-				alert(JSON.stringify(values, null, 2))
+				alert("Your Data will be updated !!")
 				UpdateData(values, deleteRows)
 					.then((res) => {
 						setSnackBar((prevState) => ({
 							...prevState,
 							open: true,
-							color: res.includes('Data Edited') ? 'success' : 'error',
+							color: res.includes('Data Edited') ? 'info' : 'error',
 							alert_message: res.includes('Data Edited')
 								? 'Data Edited'
 								: 'Something Went Wrong',
@@ -87,7 +87,7 @@ const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 				py={3}
 				px={2}
 				variant="gradient"
-				bgColor="info"
+				bgColor="primary"
 				borderRadius="lg"
 				coloredShadow="info"
 			>
@@ -127,7 +127,7 @@ const EditForm = ({ setIsOpen, deleteRows, setDeleteRows, setSnackBar }) => {
 								fullWidth
 								type="submit"
 								variant="gradient"
-								color="success"
+								color="primary"
 							>
 								Submit
 							</MDButton>

@@ -28,7 +28,7 @@ const SearchCustomer = ({ setCustomerId }) => {
 				autoComplete="off"
 				onChange={(e) => setCustomerId(e.target.value)}
 				type="search"
-				label="Search Customer"
+				label="Search Customer Number"
 				variant="standard"
 			/>
 		</MDBox>

@@ -73,7 +73,7 @@ const columns = [
 			<Chip
 				icon={<FaceIcon />}
 				label={name_customer}
-				color={color[Math.floor(Math.random() * color.length)]}
+				color= "primary"
 			/>
 		),
 	},

@@ -1,9 +1,9 @@
 {
-  "name": "material-dashboard-2-react",
+  "name": "front-end",
   "version": "2.1.0",
   "private": true,
-  "author": "saikatxshrey",
-  "description": "React version of Material Dashboard 2 by Creative Tim",
+  "author": "HRC61855WK",
+  "description": "Ai Enabled Fintech B2B Invoice Management Application",
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
   },

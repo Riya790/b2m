@@ -65,7 +65,7 @@ const DeleteForm = ({ deleteRows, setDeleteRows, setIsOpen, setSnackBar }) => {
 												...prevState,
 												open: true,
 												color: res.includes('Deleted from Database')
-													? 'success'
+													? 'info'
 													: 'error',
 												alert_message: res.includes('Deleted from Database')
 													? 'Deleted from Database'

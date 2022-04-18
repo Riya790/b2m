@@ -44,7 +44,7 @@ const validationSchema = yup.object({
 	doc_id: yup
 		.string()
 		.required('Document ID is required')
-		.max(10, 'Document ID must be within 10 character'),
+		.max(11, 'Document ID must be within 11 character'),
 	doc_type: yup
 		.string()
 		.required('Document Type is required')
@@ -87,14 +87,13 @@ const AddForm = ({ setIsOpen, setSnackBar }) => {
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values))
-
+			alert("Your Data will be added !!")
 			CreateData(values)
 				.then((res) => {
 					setSnackBar((prevState) => ({
 						...prevState,
 						open: true,
-						color: res == 'Created at Database' ? 'success' : 'error',
+						color: res == 'Created at Database' ? 'info' : 'error',
 						alert_message:
 							res == 'Created at Database' ? res : 'Something Went Wrong',
 					}))

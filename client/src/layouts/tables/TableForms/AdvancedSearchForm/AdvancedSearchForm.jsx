@@ -18,7 +18,7 @@ const validationSchema = yup.object({
 	doc_id: yup
 		.string()
 		.required('Document ID is required')
-		.max(10, 'Document ID must be within 10 character'),
+		.max(11, 'Document ID must be within 11 character'),
 	cust_number: yup
 		.string()
 		.required('Customer Number is required')
@@ -49,7 +49,7 @@ const AdvancedSearchForm = ({
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values))
+			
 
 			AdvancedSearch(values)
 				.then((res) => {
@@ -86,7 +86,7 @@ const AdvancedSearchForm = ({
 				py={3}
 				px={2}
 				variant="gradient"
-				bgColor="warning"
+				bgColor="success"
 				borderRadius="lg"
 				coloredShadow="info"
 			>
@@ -146,7 +146,7 @@ const AdvancedSearchForm = ({
 								fullWidth
 								type="submit"
 								variant="gradient"
-								color="warning"
+								color="success"
 							>
 								Search
 							</MDButton>

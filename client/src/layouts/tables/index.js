@@ -52,7 +52,7 @@ const Tables = () => {
 	}, [])
 
 	// filtered rows based on customer id
-	const searchCustomer = rows.filter((row) => row.id == customerId)
+	const searchCustomer = rows.filter((row) => row.cust_number == customerId)
 
 	return (
 		<>
@@ -64,22 +64,22 @@ const Tables = () => {
 				<Grid container spacing={6}>
 					<Grid item xs={12}>
 						<Card>
-							<MDBox
-								mx={2}
-								mt={-3}
-								py={3}
-								px={2}
-								variant="gradient"
-								bgColor="info"
-								borderRadius="lg"
-								coloredShadow="info"
-							>
-								<MDTypography variant="h6" color="white">
-									Mallu Table
-								</MDTypography>
-							</MDBox>
+							
 
 							<MDBox p={3} height="auto">
+							<MDBox
+								mx={1}
+								mt={-1}
+								py={1}
+								px={1}
+								variant="gradient"
+								bgColor="primary"
+								borderRadius="md"
+								coloredShadow="info"
+							>
+							
+							</MDBox>
+							<br/>
 								{/* table action buttons & inout field */}
 								<TableAction
 									rows={rows}
@@ -90,7 +90,20 @@ const Tables = () => {
 									deleteRows={deleteRows}
 									setDeleteRows={setDeleteRows}
 								/>
-
+								<br/>
+							<MDBox
+								mx={1}
+								mt={-1}
+								py={1}
+								px={1}
+								variant="gradient"
+								bgColor="primary"
+								borderRadius="md"
+								coloredShadow="info"
+							>
+							
+							</MDBox>
+							<br/>
 								{/* data-grid table */}
 								<DataGrid
 									rows={

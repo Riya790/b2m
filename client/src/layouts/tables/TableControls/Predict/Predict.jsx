@@ -35,7 +35,7 @@ const Predict = () => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<h2>Chutiya hai vroo?</h2>
+				<h2> </h2>
 			</Modal>
 		</>
 	)

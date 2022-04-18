@@ -36,7 +36,7 @@ const AdvancedSearch = ({ rows, setRows, setFilteredRows, setSnackBar }) => {
 				fullWidth
 				onClick={() => setIsOpen(true)}
 				variant="gradient"
-				color="warning"
+				color="secondary"
 				startIcon={<PolicyIcon />}
 			>
 				Advance Search

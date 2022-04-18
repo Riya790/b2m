@@ -65,13 +65,14 @@ const TableAction = ({
 				<Analytics />
 			</Grid>
 
+			<Grid item xs={3} sm={1} lg={1}>
+				<Refresh setRows={setRows} />
+			</Grid>
+			
 			<Grid item xs={9} sm={11} lg={5} mb={2}>
 				<SearchCustomer setCustomerId={setCustomerId} />
 			</Grid>
 
-			<Grid item xs={3} sm={1} lg={1}>
-				<Refresh setRows={setRows} />
-			</Grid>
 		</Grid>
 	)
 }
